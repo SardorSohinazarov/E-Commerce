@@ -12,7 +12,7 @@ builder.Services.AddHostedService<BotBackgroundService>();
 
 builder.Services.AddSingleton(new TelegramBotClient("6894570410:AAFa3MScDAHDim-7fAGL37yFZgACN_Pxjw0"));
 
-builder.Services.AddSingleton<IUpdateHandler,UpdateHandlerService>();
+builder.Services.AddSingleton<IUpdateHandler, UpdateHandlerService>();
 
 var app = builder.Build();
 

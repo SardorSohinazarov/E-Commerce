@@ -10,8 +10,8 @@ namespace E_Commerce.Bot.BotServices
         private readonly IUpdateHandler _updateHandler;
 
         public BotBackgroundService(
-            ILogger<BotBackgroundService> logger, 
-            TelegramBotClient botClient, 
+            ILogger<BotBackgroundService> logger,
+            TelegramBotClient botClient,
             IUpdateHandler updateHandler)
         {
             _logger = logger;
@@ -29,10 +29,10 @@ namespace E_Commerce.Bot.BotServices
                 updateHandler: _updateHandler.HandleUpdateAsync,
                 pollingErrorHandler: _updateHandler.HandlePollingErrorAsync,
                 receiverOptions: new ReceiverOptions()
-                    {
-                        ThrowPendingUpdates = true
-                    },
-                cancellationToken:stoppingToken
+                {
+                    ThrowPendingUpdates = true
+                },
+                cancellationToken: stoppingToken
                 );
         }
     }
