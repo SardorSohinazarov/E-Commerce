@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EA53E2F6-EBC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Bot", "src\E-Commerce.Bot\E-Commerce.Bot.csproj", "{9EACE531-7CE1-4817-81D5-D88CF8581DD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Data", "src\E-Commerce.Data\E-Commerce.Data.csproj", "{655638BE-5F80-441F-A79A-B8916F0CB426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{9EACE531-7CE1-4817-81D5-D88CF8581DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EACE531-7CE1-4817-81D5-D88CF8581DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EACE531-7CE1-4817-81D5-D88CF8581DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{655638BE-5F80-441F-A79A-B8916F0CB426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{655638BE-5F80-441F-A79A-B8916F0CB426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{655638BE-5F80-441F-A79A-B8916F0CB426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{655638BE-5F80-441F-A79A-B8916F0CB426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9EACE531-7CE1-4817-81D5-D88CF8581DD4} = {EA53E2F6-EBC8-409C-A996-54CEAB0EEABB}
+		{655638BE-5F80-441F-A79A-B8916F0CB426} = {EA53E2F6-EBC8-409C-A996-54CEAB0EEABB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B540D7FD-DAA9-4669-9B2A-52FEBE9EEFE4}
