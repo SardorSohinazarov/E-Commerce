@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Services
 {
-    internal class BotBackgroundService
+    internal class QanaqadurServicelarda
     {
     }
 }
