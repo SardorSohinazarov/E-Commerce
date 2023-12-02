@@ -1,4 +1,5 @@
-﻿using Telegram.Bot;
+﻿using E_Commerce.Bot.BotServices.ReplyKeyboardMarkups;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -12,20 +13,25 @@ namespace E_Commerce.Bot.BotServices
             var textMessage = update.Message.Text;
 
             if(textMessage == "/start") 
-            {
-                var keyboardButton = KeyboardButton.WithRequestContact("📱 Share phone number 📱");
-                
-                ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButton);
+                 await ReplyKeyboardMurkupsService.SendMurkupWithPhoneNumberRequest(botClient, update, cancellationToken);
 
+            if(textMessage == "⬅️ Ortga")
+                await ReplyKeyboardMurkupsService.SendMurkupForMainState(botClient, update, cancellationToken);
 
-                await botClient.SendTextMessageAsync(
-                    chatId:update.Message.Chat.Id,
-                    text: "📱 Telefon raqamingiz qanday? Telefon raqamingizni jo'natish uchun, quyidagi \"📱 Raqamni jo'natish\" tugmasini bosing.",
-                    parseMode:ParseMode.Html,
-                    replyMarkup: replyKeyboardMarkup,
-                    cancellationToken:cancellationToken
-                );
-            }
+            if(textMessage == "☎️ Biz bilan aloqa")
+                await ReplyKeyboardMurkupsService.SendMurkupForContactState(botClient,update, cancellationToken);
+
+            if(textMessage == "✍️ Fikr bildirish")
+                await ReplyKeyboardMurkupsService.SendMurkupForCommentState(botClient,update, cancellationToken);
+
+            if (textMessage == "ℹ️ Ma'lumot")
+                await ReplyKeyboardMurkupsService.SendMurkupForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" });
+            
+            if (textMessage == "⚙️ Sozlamalar")
+                await ReplyKeyboardMurkupsService.SendMurkupForOptionsState(botClient, update, cancellationToken);
+
+            if(textMessage == "🛍 Buyurtma berish")
+                await ReplyKeyboardMurkupsService.SendMurkupForOrdersState(botClient, update, cancellationToken);
         }
     }
 }
