@@ -1,3 +1,4 @@
+using E_Commerce.Bot.BackgroundServices;
 using E_Commerce.Bot.BotServices;
 using E_Commerce.Infrastructure.Data;
 using Telegram.Bot;
