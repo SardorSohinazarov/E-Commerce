@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    [Migration("20231201163102_Init")]
+    [Migration("20231203085233_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,15 +23,16 @@ namespace E_Commerce.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("E_Commerce.Data.Entities.Client", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entities.Client", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageCode")
@@ -43,8 +44,11 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserStatus")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<long>("TelegramId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");

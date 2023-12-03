@@ -1,23 +1,18 @@
-﻿using E_Commerce.Domain.Entities;
+﻿using E_Commerce.Application.Abstruction;
+using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Infrastructure.Data
 {
-    public class BotDbContext:DbContext
+    public class BotDbContext:DbContext, IApplicationDbContext
     {
         public BotDbContext(DbContextOptions<BotDbContext> options)
-            :base(options)
-        {
-            Database.Migrate();
-        }
+            : base(options)
+            => Database.Migrate();
 
         public DbSet<Client> Clients { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=E-CommerceBotDb;");
-        }
+        async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
+            => await base.SaveChangesAsync(cancellationToken);
     }
 }
