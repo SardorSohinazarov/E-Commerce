@@ -175,5 +175,24 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+        
+        public static async ValueTask<ReplyKeyboardMarkup> ForChangeLanguageState()
+        {
+            List<List<KeyboardButton>> keyboardButtons = new List<List<KeyboardButton>>{
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("🇺🇿 O'zbekcha"),
+                    new KeyboardButton("🇷🇺 Русский"),
+                },
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("🇬🇧 English"),
+                },
+            };
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
+
+            return replyKeyboardMarkup;
+        }
     }
 }

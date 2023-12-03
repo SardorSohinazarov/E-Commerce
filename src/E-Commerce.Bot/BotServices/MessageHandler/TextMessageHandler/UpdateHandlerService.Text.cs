@@ -23,7 +23,8 @@ namespace E_Commerce.Bot.BotServices
             {
                 await SendMessage.ForPhoneNumberRequest(botClient, update, cancellationToken);
                 return;
-            }else if(state == Status.ChangeName)
+            }
+            else if(state == Status.ChangeName)
             {
                 if(textMessage != "⬅️ Ortga")
                 {
@@ -35,7 +36,8 @@ namespace E_Commerce.Bot.BotServices
                 }
                 await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                 return;
-            }else if(state == Status.ChangeNumber)
+            }
+            else if(state == Status.ChangeNumber)
             {
                 if(textMessage != "⬅️ Ortga")
                 {
@@ -45,6 +47,21 @@ namespace E_Commerce.Bot.BotServices
                 {
                     await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
                 }
+                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+                return;
+            }
+            else if(state == Status.ChangeLanguage)
+            {
+                var languages = new string[]{ "🇺🇿 O'zbekcha", "🇷🇺 Русский", "🇬🇧 English" };
+                if(languages.Contains(textMessage))
+                {
+                    await _clientService.UpdateClientLanguageCodeAsync(from.Id, textMessage);
+                }
+                else
+                {
+                    return;
+                }
+
                 await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                 return;
             }
@@ -61,6 +78,7 @@ namespace E_Commerce.Bot.BotServices
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 "Ismni o'zgartirish" => CommandForChangeNameRequest(botClient, update, cancellationToken),
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
+                "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -72,6 +90,13 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForChangeLanguageRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForChangeLanguageState(botClient, update, cancellationToken);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.ChangeLanguage);
+            return message;
         }
 
         private async ValueTask<Message> CommandForChangeNumberRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

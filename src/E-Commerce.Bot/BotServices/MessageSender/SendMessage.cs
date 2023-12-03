@@ -150,5 +150,21 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
+        
+        public static async ValueTask<Message> ForChangeLanguageState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "🇺🇿 Tilni tanlang",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForChangeLanguageState(),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
     }
 }
