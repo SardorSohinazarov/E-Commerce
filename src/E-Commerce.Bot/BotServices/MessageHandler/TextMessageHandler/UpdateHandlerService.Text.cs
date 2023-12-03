@@ -29,26 +29,18 @@ namespace E_Commerce.Bot.BotServices
                 if(textMessage != "⬅️ Ortga")
                 {
                     await _clientService.UpdateClientNameAsync(from.Id, textMessage);
+                    await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+                    return;
                 }
-                else
-                {
-                    await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
-                }
-                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
-                return;
             }
             else if(state == Status.ChangeNumber)
             {
                 if(textMessage != "⬅️ Ortga")
                 {
                     await _clientService.UpdateClientPhoneNumberAsync(from.Id, textMessage);
+                    await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+                    return;
                 }
-                else
-                {
-                    await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
-                }
-                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
-                return;
             }
             else if(state == Status.ChangeLanguage)
             {
@@ -56,14 +48,9 @@ namespace E_Commerce.Bot.BotServices
                 if(languages.Contains(textMessage))
                 {
                     await _clientService.UpdateClientLanguageCodeAsync(from.Id, textMessage);
-                }
-                else
-                {
+                    await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                     return;
                 }
-
-                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
-                return;
             }
 
 
@@ -115,7 +102,7 @@ namespace E_Commerce.Bot.BotServices
 
         private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken,Status status)
         {
-            if(status == Status.ChangeName)
+            if(status == Status.ChangeName || status == Status.ChangeNumber)
             {
                 var message = await SendMessage.ForOptionsState(botClient,update, cancellationToken);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Options);
