@@ -51,9 +51,9 @@ namespace E_Commerce.Application.Services
             return storageUser;
         }
 
-        public async ValueTask<Client> UpdateClientLanguageCodeAsync(Client client, string languageCode)
+        public async ValueTask<Client> UpdateClientLanguageCodeAsync(long telegramId, string languageCode)
         {
-            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == client.TelegramId);
+            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
 
             if (storageUser == null)
             {
@@ -62,16 +62,16 @@ namespace E_Commerce.Application.Services
             else
             {
                 storageUser.LanguageCode = languageCode;
-                var entry = _context.Clients.Update(client);
+                var entry = _context.Clients.Update(storageUser);
                 await _context.SaveChangesAsync();
 
                 return entry.Entity;
             }
         }
 
-        public async ValueTask<Client> UpdateClientPhoneNumberAsync(Client client, string phoneNumber)
+        public async ValueTask<Client> UpdateClientPhoneNumberAsync(long telegramId, string phoneNumber)
         {
-            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == client.TelegramId);
+            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
 
             if(storageUser == null)
             {
@@ -80,16 +80,18 @@ namespace E_Commerce.Application.Services
             else
             {
                 storageUser.PhoneNumber = phoneNumber;
-                var entry = _context.Clients.Update(client);
+                storageUser.Status = Status.Active;
+
+                var entry = _context.Clients.Update(storageUser);
                 await _context.SaveChangesAsync();
 
                 return entry.Entity;
             }
         }
 
-        public async ValueTask<Client> UpdateClientUserStatusAsync(Client client, Status status)
+        public async ValueTask<Client> UpdateClientUserStatusAsync(long telegramId, Status status)
         {
-            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == client.TelegramId);
+            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
 
             if (storageUser == null)
             {
@@ -98,7 +100,7 @@ namespace E_Commerce.Application.Services
             else
             {
                 storageUser.Status = status;
-                var entry = _context.Clients.Update(client);
+                var entry = _context.Clients.Update(storageUser);
                 await _context.SaveChangesAsync();
                
                 return entry.Entity;

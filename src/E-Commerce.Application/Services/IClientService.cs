@@ -5,9 +5,9 @@ namespace E_Commerce.Application.Services
     public interface IClientService
     {
         ValueTask<Client> AddAsync(Client client);
-        ValueTask<Client> UpdateClientPhoneNumberAsync(Client client,string phoneNumber);
-        ValueTask<Client> UpdateClientLanguageCodeAsync(Client client,string languageCode);
-        ValueTask<Client> UpdateClientUserStatusAsync(Client client,Status status);
+        ValueTask<Client> UpdateClientPhoneNumberAsync(long telegramId,string phoneNumber);
+        ValueTask<Client> UpdateClientLanguageCodeAsync(long telegramId, string languageCode);
+        ValueTask<Client> UpdateClientUserStatusAsync(long telegramId, Status status);
         ValueTask<bool> DeleteClientAsync(long id);
         ValueTask<Client> GetClientAsync(long id);
     }
