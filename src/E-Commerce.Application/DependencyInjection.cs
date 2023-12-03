@@ -8,6 +8,8 @@ namespace E_Commerce.Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IClientService, ClientsService> ();
+            services.AddScoped<IFeedbackService, FeedbackService> ();
+            services.AddScoped<IRateService, RateService> ();
 
             return services;
         }

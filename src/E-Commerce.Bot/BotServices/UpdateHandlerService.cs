@@ -10,6 +10,8 @@ namespace E_Commerce.Bot.BotServices
     {
         private readonly IServiceScopeFactory _scopeFactory;
         private IClientService _clientService;
+        private IFeedbackService _feedbackService;
+        private IRateService _rateService;
 
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
@@ -18,6 +20,8 @@ namespace E_Commerce.Bot.BotServices
         {
             using var scope = _scopeFactory.CreateAsyncScope();
             _clientService = scope.ServiceProvider.GetService<IClientService>();
+            _feedbackService = scope.ServiceProvider.GetService<IFeedbackService>();
+            _rateService = scope.ServiceProvider.GetService<IRateService>();
 
             var updateHandler = update.Type switch
             {

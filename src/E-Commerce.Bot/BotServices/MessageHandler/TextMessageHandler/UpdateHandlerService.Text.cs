@@ -1,4 +1,5 @@
-﻿using E_Commerce.Bot.BotServices.MessageSender;
+﻿using E_Commerce.Application.DTOs;
+using E_Commerce.Bot.BotServices.MessageSender;
 using E_Commerce.Domain.Entities;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -57,7 +58,13 @@ namespace E_Commerce.Bot.BotServices
                 var feedbackGrades = new string[]{ "Hammasi yoqdi ♥️", "Yaxshi ⭐️⭐️⭐️⭐️", "Yoqmadi ⭐️⭐️⭐️", "Yomon ⭐️⭐️", "Juda yomon 👎🏻" };
                 if(feedbackGrades.Contains(textMessage))
                 {
-                    //await _gradeService.AddGradeAsync(from.Id, textMessage);
+                    var rateDto = new RateCreationDTO()
+                    {
+                        UserTelegramId = from.Id,
+                        RateText = textMessage
+                    };
+
+                    await _rateService.AddRateAsync(rateDto);
                     await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Feedback);
                     await SendMessage.ForFeedbackState(botClient, update, cancellationToken);
                     return;
@@ -65,7 +72,13 @@ namespace E_Commerce.Bot.BotServices
             }
             else if(state == Status.Feedback)
             {
-                //await _gradeService.AddFeedbackAsync(from.Id, textMessage);
+                var feedback = new Feedback()
+                {
+                    UserTelegramId = from.Id,
+                    Text = textMessage,
+                };
+
+                await _feedbackService.AddFeedbackAsync(feedback);
                 await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
                 await SendMessage.ForMainState(botClient, update, cancellationToken);
                 return;
