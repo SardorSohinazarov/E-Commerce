@@ -1,14 +1,14 @@
-﻿using E_Commerce.Data.Entities;
-using E_Commerce.Infrastructure.Data;
+﻿using E_Commerce.Application.Abstruction;
+using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Application.Services
 {
     public class ClientsService:IClientService
     {
-        private readonly BotDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public ClientsService(BotDbContext context)
+        public ClientsService(IApplicationDbContext context)
             => _context = context;
 
         public async ValueTask<Client> AddAsync(Client client)
@@ -62,7 +62,7 @@ namespace E_Commerce.Application.Services
             else
             {
                 storageUser.LanguageCode = languageCode;
-                var entry = _context.Update(client);
+                var entry = _context.Clients.Update(client);
                 await _context.SaveChangesAsync();
 
                 return entry.Entity;
@@ -80,14 +80,14 @@ namespace E_Commerce.Application.Services
             else
             {
                 storageUser.PhoneNumber = phoneNumber;
-                var entry = _context.Update(client);
+                var entry = _context.Clients.Update(client);
                 await _context.SaveChangesAsync();
 
                 return entry.Entity;
             }
         }
 
-        public async ValueTask<Client> UpdateClientUserStatusAsync(Client client, UserStatus status)
+        public async ValueTask<Client> UpdateClientUserStatusAsync(Client client, Status status)
         {
             var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == client.TelegramId);
 
@@ -97,8 +97,8 @@ namespace E_Commerce.Application.Services
             }
             else
             {
-                storageUser.UserStatus = status;
-                var entry = _context.Update(client);
+                storageUser.Status = status;
+                var entry = _context.Clients.Update(client);
                 await _context.SaveChangesAsync();
                
                 return entry.Entity;

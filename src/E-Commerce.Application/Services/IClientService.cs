@@ -1,4 +1,4 @@
-﻿using E_Commerce.Data.Entities;
+﻿using E_Commerce.Domain.Entities;
 
 namespace E_Commerce.Application.Services
 {
@@ -7,7 +7,7 @@ namespace E_Commerce.Application.Services
         ValueTask<Client> AddAsync(Client client);
         ValueTask<Client> UpdateClientPhoneNumberAsync(Client client,string phoneNumber);
         ValueTask<Client> UpdateClientLanguageCodeAsync(Client client,string languageCode);
-        ValueTask<Client> UpdateClientUserStatusAsync(Client client,UserStatus status);
+        ValueTask<Client> UpdateClientUserStatusAsync(Client client,Status status);
         ValueTask<bool> DeleteClientAsync(long id);
         ValueTask<Client> GetClientAsync(long id);
     }
