@@ -2,7 +2,7 @@
 using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Feedbacks
 {
     public class FeedbackService : IFeedbackService
     {

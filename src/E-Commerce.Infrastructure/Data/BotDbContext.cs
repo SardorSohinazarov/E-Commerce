@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Infrastructure.Data
 {
-    public class BotDbContext:DbContext, IApplicationDbContext
+    public class BotDbContext : DbContext, IApplicationDbContext
     {
         public BotDbContext(DbContextOptions<BotDbContext> options)
             : base(options)

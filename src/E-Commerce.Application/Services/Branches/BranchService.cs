@@ -2,7 +2,7 @@
 using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Branches
 {
     public class BranchService : IBranchService
     {
@@ -23,12 +23,12 @@ namespace E_Commerce.Application.Services
         public async ValueTask<Branch> DeleteBranchAsync(int id)
         {
             var storageBranch = await _context.Branches.FirstOrDefaultAsync(x => x.Id == id);
-            if (storageBranch != null) 
+            if (storageBranch != null)
             {
                 throw new Exception("Branch not found");
             }
 
-            var entry = _context.Branches.Remove(storageBranch);  
+            var entry = _context.Branches.Remove(storageBranch);
             await _context.SaveChangesAsync();
 
             return entry.Entity;
@@ -40,7 +40,7 @@ namespace E_Commerce.Application.Services
 
             return branches;
         }
-        
+
         public async ValueTask<Branch> GetBranchFromNameAsync(string name)
         {
             var branche = await _context.Branches.FirstOrDefaultAsync(x => x.Name == name);

@@ -1,7 +1,7 @@
 ﻿using E_Commerce.Application.DTOs;
 using E_Commerce.Domain.Entities;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Rates
 {
     public interface IRateService
     {

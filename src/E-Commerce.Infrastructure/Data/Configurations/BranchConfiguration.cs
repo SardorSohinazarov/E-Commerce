@@ -10,15 +10,15 @@ namespace E_Commerce.Infrastructure.Data.Configurations
         {
             builder.HasData(new List<Branch>()
             {
-                new Branch { 
-                    Id = 1, 
+                new Branch {
+                    Id = 1,
                     Name = "Kukcha",
                     Longitude = 50,
                     Latitude = 60,
                     Description = "Ajoyib filialimiz"
                 },
-                new Branch { 
-                    Id = 2, 
+                new Branch {
+                    Id = 2,
                     Name = "Chilonzor",
                     Longitude = 56,
                     Latitude = 61,

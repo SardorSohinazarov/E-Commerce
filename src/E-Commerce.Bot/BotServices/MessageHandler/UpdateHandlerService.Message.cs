@@ -48,7 +48,7 @@ namespace E_Commerce.Bot.BotServices
 
             Console.WriteLine($"Telefon no'mer keldiyu {update.Message.Contact.PhoneNumber}");
 
-            await SendMessage.ForMainState(botClient,update,cancellationToken);
+            await SendMessage.ForMainState(botClient, update, cancellationToken);
         }
 
         private async Task HandleUnknownMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

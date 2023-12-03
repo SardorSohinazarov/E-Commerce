@@ -3,7 +3,7 @@ using E_Commerce.Application.DTOs;
 using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Rates
 {
     public class RateService : IRateService
     {

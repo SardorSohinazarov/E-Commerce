@@ -1,6 +1,6 @@
 ﻿using E_Commerce.Domain.Entities;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Feedbacks
 {
     public interface IFeedbackService
     {

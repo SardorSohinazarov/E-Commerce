@@ -167,7 +167,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
-        
+
         public static async ValueTask<ReplyKeyboardMarkup> ForChangeNumberState()
         {
             var keyboardButton = new KeyboardButton("⬅️ Ortga");
@@ -175,7 +175,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
-        
+
         public static async ValueTask<ReplyKeyboardMarkup> ForChangeLanguageState()
         {
             List<List<KeyboardButton>> keyboardButtons = new List<List<KeyboardButton>>{

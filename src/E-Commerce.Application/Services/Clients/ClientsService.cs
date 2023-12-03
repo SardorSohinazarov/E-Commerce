@@ -1,10 +1,11 @@
 ﻿using E_Commerce.Application.Abstruction;
 using E_Commerce.Domain.Entities;
+using E_Commerce.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_Commerce.Application.Services
+namespace E_Commerce.Application.Services.Clients
 {
-    public class ClientsService:IClientService
+    public class ClientsService : IClientService
     {
         private readonly IApplicationDbContext _context;
 
@@ -15,7 +16,7 @@ namespace E_Commerce.Application.Services
         {
             var storageClient = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == client.TelegramId);
 
-            if(storageClient == null)
+            if (storageClient == null)
             {
                 var entry = await _context.Clients.AddAsync(client);
                 await _context.SaveChangesAsync();
@@ -93,7 +94,7 @@ namespace E_Commerce.Application.Services
         {
             var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
 
-            if(storageUser == null)
+            if (storageUser == null)
             {
                 return storageUser;
             }
@@ -122,7 +123,7 @@ namespace E_Commerce.Application.Services
                 storageUser.Status = status;
                 var entry = _context.Clients.Update(storageUser);
                 await _context.SaveChangesAsync();
-               
+
                 return entry.Entity;
             }
         }

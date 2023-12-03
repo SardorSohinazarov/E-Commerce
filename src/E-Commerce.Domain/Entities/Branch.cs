@@ -1,6 +1,8 @@
-﻿namespace E_Commerce.Domain.Entities
+﻿using E_Commerce.Domain.Common;
+
+namespace E_Commerce.Domain.Entities
 {
-    public class Branch
+    public class Branch : Auditable
     {
         public int Id { get; set; }
         public string Name { get; set; }

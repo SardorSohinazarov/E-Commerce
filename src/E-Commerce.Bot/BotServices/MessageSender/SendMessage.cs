@@ -1,7 +1,7 @@
-﻿using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types;
+﻿using E_Commerce.Domain.Entities;
 using Telegram.Bot;
-using E_Commerce.Domain.Entities;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace E_Commerce.Bot.BotServices.MessageSender
 {
@@ -16,7 +16,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     chatId: update.Message.Chat.Id,
                     text: "📱 Telefon raqamingiz qanday? Telefon raqamingizni jo'natish uchun, quyidagi \"📱 Raqamni jo'natish\" tugmasini bosing.",
                     parseMode: ParseMode.Html,
-                    replyMarkup:await ReplyKeyboardMarkups.ForPhoneNumberRequest(),
+                    replyMarkup: await ReplyKeyboardMarkups.ForPhoneNumberRequest(),
                     cancellationToken: cancellationToken
                 );
 
@@ -70,7 +70,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
-        
+
         public static async ValueTask<Message> ForFeedbackState(
             ITelegramBotClient botClient,
             Update update,
@@ -150,7 +150,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
-        
+
         public static async ValueTask<Message> ForChangeNumberState(
             ITelegramBotClient botClient,
             Update update,
@@ -166,7 +166,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
-        
+
         public static async ValueTask<Message> ForChangeLanguageState(
             ITelegramBotClient botClient,
             Update update,
@@ -182,7 +182,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
-        
+
         public static async ValueTask<Message> ForBranchState(
             ITelegramBotClient botClient,
             Update update,

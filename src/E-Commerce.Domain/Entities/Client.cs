@@ -1,6 +1,9 @@
-﻿namespace E_Commerce.Domain.Entities
+﻿using E_Commerce.Domain.Common;
+using E_Commerce.Domain.Enums;
+
+namespace E_Commerce.Domain.Entities
 {
-    public class Client
+    public class Client : Auditable
     {
         public int Id { get; set; }
 
