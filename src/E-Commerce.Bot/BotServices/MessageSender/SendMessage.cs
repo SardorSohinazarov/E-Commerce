@@ -54,7 +54,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             return message;
         }
 
-        public static async ValueTask<Message> ForCommentState(
+        public static async ValueTask<Message> ForFeedbackGradeState(
             ITelegramBotClient botClient,
             Update update,
             CancellationToken cancellationToken)
@@ -63,7 +63,22 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     chatId: update.Message.Chat.Id,
                     text: "Fish and Breadni tanlaganingiz uchun rahmat.\r\nAgar siz bizning xizmat sifatimizni yaxshilashimizga yordam bersangiz hursand bulardik.\r\nBuning uchun 5 bal tizim asosida baholang",
                     parseMode: ParseMode.Html,
-                    replyMarkup: await ReplyKeyboardMarkups.ForCommentState(),
+                    replyMarkup: await ReplyKeyboardMarkups.ForFeedbackGradeState(),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+        
+        public static async ValueTask<Message> ForFeedbackState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "O'z fikr va mulohazalaringizni jo'nating.",
+                    parseMode: ParseMode.Html,
                     cancellationToken: cancellationToken
                 );
 

@@ -60,7 +60,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             return replyKeyboardMarkup;
         }
 
-        public static async ValueTask<ReplyKeyboardMarkup> ForCommentState()
+        public static async ValueTask<ReplyKeyboardMarkup> ForFeedbackGradeState()
         {
             List<List<KeyboardButton>> keyboardButtons = new List<List<KeyboardButton>>{
                 new List<KeyboardButton>()

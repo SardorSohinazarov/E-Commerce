@@ -52,6 +52,24 @@ namespace E_Commerce.Bot.BotServices
                     return;
                 }
             }
+            else if(state == Status.FeedbackGrade)
+            {
+                var feedbackGrades = new string[]{ "Hammasi yoqdi ♥️", "Yaxshi ⭐️⭐️⭐️⭐️", "Yoqmadi ⭐️⭐️⭐️", "Yomon ⭐️⭐️", "Juda yomon 👎🏻" };
+                if(feedbackGrades.Contains(textMessage))
+                {
+                    //await _gradeService.AddGradeAsync(from.Id, textMessage);
+                    await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Feedback);
+                    await SendMessage.ForFeedbackState(botClient, update, cancellationToken);
+                    return;
+                }
+            }
+            else if(state == Status.Feedback)
+            {
+                //await _gradeService.AddFeedbackAsync(from.Id, textMessage);
+                await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
+                await SendMessage.ForMainState(botClient, update, cancellationToken);
+                return;
+            }
 
 
             var texthandler = textMessage switch
@@ -59,13 +77,14 @@ namespace E_Commerce.Bot.BotServices
                 "/start" => CommandForPhoneNumberRequest(botClient,update,cancellationToken),
                 "⬅️ Ortga" => CommandForPreviousRequest(botClient, update, cancellationToken, state),
                 "☎️ Biz bilan aloqa" => SendMessage.ForContactState(botClient, update, cancellationToken),
-                "✍️ Fikr bildirish" => SendMessage.ForCommentState(botClient, update, cancellationToken),
-                "ℹ️ Ma'lumot" => SendMessage.ForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" }),
+                "✍️ Fikr bildirish" => CommandForFeedbackRequest(botClient, update, cancellationToken),
                 "⚙️ Sozlamalar" => SendMessage.ForOptionsState(botClient, update, cancellationToken),
-                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 "Ismni o'zgartirish" => CommandForChangeNameRequest(botClient, update, cancellationToken),
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
+                //refactor qilinmaganlari
+                "ℹ️ Ma'lumot" => SendMessage.ForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" }),
+                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -77,6 +96,13 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForFeedbackRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForFeedbackGradeState(botClient, update, cancellationToken);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.FeedbackGrade);
+            return message;
         }
 
         private async ValueTask<Message> CommandForChangeLanguageRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

@@ -11,6 +11,8 @@
                 Information,
                 Contact,
                 Comment,
+                    FeedbackGrade,
+                    Feedback,
                 Order,
                     Delivery,
                     NoDelivery
