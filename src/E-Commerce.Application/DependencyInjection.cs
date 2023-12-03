@@ -10,6 +10,7 @@ namespace E_Commerce.Application
             services.AddScoped<IClientService, ClientsService> ();
             services.AddScoped<IFeedbackService, FeedbackService> ();
             services.AddScoped<IRateService, RateService> ();
+            services.AddScoped<IBranchService, BranchService>();
 
             return services;
         }

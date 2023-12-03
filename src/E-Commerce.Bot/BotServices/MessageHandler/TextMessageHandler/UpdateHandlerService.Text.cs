@@ -15,48 +15,48 @@ namespace E_Commerce.Bot.BotServices
             var storageUser = await _clientService.GetClientAsync(from.Id);
 
             //authentication:agar user null bo'lsa registratsiya qilamiz
-            if(storageUser == null)
-                storageUser = await Register(botClient, update,from, cancellationToken);
+            if (storageUser == null)
+                storageUser = await Register(botClient, update, from, cancellationToken);
 
             //authorization:userni stateni topelik
             var state = storageUser.Status;
-            if(state == Status.Inactive)
+            if (state == Status.Inactive)
             {
                 await SendMessage.ForPhoneNumberRequest(botClient, update, cancellationToken);
                 return;
             }
-            else if(state == Status.ChangeName)
+            else if (state == Status.ChangeName)
             {
-                if(textMessage != "⬅️ Ortga")
+                if (textMessage != "⬅️ Ortga")
                 {
                     await _clientService.UpdateClientNameAsync(from.Id, textMessage);
                     await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                     return;
                 }
             }
-            else if(state == Status.ChangeNumber)
+            else if (state == Status.ChangeNumber)
             {
-                if(textMessage != "⬅️ Ortga")
+                if (textMessage != "⬅️ Ortga")
                 {
                     await _clientService.UpdateClientPhoneNumberAsync(from.Id, textMessage);
                     await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                     return;
                 }
             }
-            else if(state == Status.ChangeLanguage)
+            else if (state == Status.ChangeLanguage)
             {
-                var languages = new string[]{ "🇺🇿 O'zbekcha", "🇷🇺 Русский", "🇬🇧 English" };
-                if(languages.Contains(textMessage))
+                var languages = new string[] { "🇺🇿 O'zbekcha", "🇷🇺 Русский", "🇬🇧 English" };
+                if (languages.Contains(textMessage))
                 {
                     await _clientService.UpdateClientLanguageCodeAsync(from.Id, textMessage);
                     await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                     return;
                 }
             }
-            else if(state == Status.Grade)
+            else if (state == Status.Grade)
             {
-                var feedbackGrades = new string[]{ "Hammasi yoqdi ♥️", "Yaxshi ⭐️⭐️⭐️⭐️", "Yoqmadi ⭐️⭐️⭐️", "Yomon ⭐️⭐️", "Juda yomon 👎🏻" };
-                if(feedbackGrades.Contains(textMessage))
+                var feedbackGrades = new string[] { "Hammasi yoqdi ♥️", "Yaxshi ⭐️⭐️⭐️⭐️", "Yoqmadi ⭐️⭐️⭐️", "Yomon ⭐️⭐️", "Juda yomon 👎🏻" };
+                if (feedbackGrades.Contains(textMessage))
                 {
                     var rateDto = new RateCreationDTO()
                     {
@@ -70,7 +70,7 @@ namespace E_Commerce.Bot.BotServices
                     return;
                 }
             }
-            else if(state == Status.Feedback)
+            else if (state == Status.Feedback)
             {
                 var feedback = new Feedback()
                 {
@@ -83,11 +83,25 @@ namespace E_Commerce.Bot.BotServices
                 await SendMessage.ForMainState(botClient, update, cancellationToken);
                 return;
             }
+            else if(state == Status.Information) 
+            {
+                if (textMessage != "⬅️ Ortga")
+                {
+                    var branch = await _branchService.GetBranchFromNameAsync(textMessage);
+                    if (branch == null)
+                    {
+                        await SendMessage.InformationNotFound(botClient,update,cancellationToken);
+                        return;
+                    }
+
+                    await SendMessage.ForBranchState(botClient,update, cancellationToken, branch);
+                }
+            }
 
 
             var texthandler = textMessage switch
             {
-                "/start" => CommandForPhoneNumberRequest(botClient,update,cancellationToken),
+                "/start" => CommandForPhoneNumberRequest(botClient, update, cancellationToken),
                 "⬅️ Ortga" => CommandForPreviousRequest(botClient, update, cancellationToken, state),
                 "☎️ Biz bilan aloqa" => CommandForContactRequest(botClient, update, cancellationToken),
                 "✍️ Fikr bildirish" => CommandForFeedbackRequest(botClient, update, cancellationToken),
@@ -95,8 +109,8 @@ namespace E_Commerce.Bot.BotServices
                 "Ismni o'zgartirish" => CommandForChangeNameRequest(botClient, update, cancellationToken),
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
+                "ℹ️ Ma'lumot" => CommandForInformationRequest(botClient, update, cancellationToken, new List<string> { "Kukcha" }),
                 //refactor qilinmaganlari
-                "ℹ️ Ma'lumot" => SendMessage.ForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" }),
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
@@ -109,6 +123,15 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForInformationRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, List<string> list)
+        {
+            var branchNames = (await _branchService.GetBranchesAsync()).Select(x => x.Name).ToList();
+            var message = await SendMessage.ForInformationState(botClient, update, cancellationToken, branchNames);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Information);
+
+            return message;
         }
 
         private async ValueTask<Message> CommandForOptionsRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -149,16 +172,22 @@ namespace E_Commerce.Bot.BotServices
         private async ValueTask<Message> CommandForChangeNameRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             var message = await SendMessage.ForChangeNameState(botClient, update, cancellationToken);
-            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id,Status.ChangeName);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.ChangeName);
             return message;
         }
 
-        private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken,Status status)
+        private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, Status status)
         {
             Message message;
-            if(status == Status.ChangeName || status == Status.ChangeNumber)
+            if (status == Status.ChangeName || status == Status.ChangeNumber)
             {
                 message = await SendMessage.ForOptionsState(botClient,update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+                return message;
+            }
+            else if (status == Status.Information)
+            {
+                message = await SendMessage.ForMainState(botClient,update, cancellationToken);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
                 return message;
             }

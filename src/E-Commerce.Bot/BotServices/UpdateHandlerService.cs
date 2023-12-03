@@ -12,6 +12,7 @@ namespace E_Commerce.Bot.BotServices
         private IClientService _clientService;
         private IFeedbackService _feedbackService;
         private IRateService _rateService;
+        private IBranchService _branchService;
 
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
@@ -22,6 +23,7 @@ namespace E_Commerce.Bot.BotServices
             _clientService = scope.ServiceProvider.GetService<IClientService>();
             _feedbackService = scope.ServiceProvider.GetService<IFeedbackService>();
             _rateService = scope.ServiceProvider.GetService<IRateService>();
+            _branchService = scope.ServiceProvider.GetService<IBranchService>();
 
             var updateHandler = update.Type switch
             {

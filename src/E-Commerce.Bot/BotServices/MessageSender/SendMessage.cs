@@ -1,6 +1,7 @@
 ﻿using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types;
 using Telegram.Bot;
+using E_Commerce.Domain.Entities;
 
 namespace E_Commerce.Bot.BotServices.MessageSender
 {
@@ -176,6 +177,44 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     text: "🇺🇿 Tilni tanlang",
                     parseMode: ParseMode.Html,
                     replyMarkup: await ReplyKeyboardMarkups.ForChangeLanguageState(),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+        
+        public static async ValueTask<Message> ForBranchState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            Branch branch)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: branch.Description ?? "Ma'lumot yo'q",
+                    parseMode: ParseMode.Html,
+                    cancellationToken: cancellationToken
+                );
+
+            await botClient.SendLocationAsync(
+                    chatId: update.Message.Chat.Id,
+                    latitude: branch.Latitude ?? 0,
+                    longitude: branch.Longitude ?? 0,
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> InformationNotFound(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Malumot topilmadi",
+                    parseMode: ParseMode.Html,
                     cancellationToken: cancellationToken
                 );
 
