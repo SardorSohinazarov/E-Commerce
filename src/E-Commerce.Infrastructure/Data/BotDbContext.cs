@@ -11,6 +11,8 @@ namespace E_Commerce.Infrastructure.Data
             => Database.Migrate();
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Rate> Rates { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
 
         async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
             => await base.SaveChangesAsync(cancellationToken);
