@@ -4,16 +4,16 @@
     {
         Inactive,
             Active,
-                Options,
+                //Options,
                     ChangeName,
                     ChangeNumber,
                     ChangeLanguage,
                 Information,
                 Contact,
-                Comment,
+                //Comment,
                     Grade,
                     Feedback,
-                Order,
+                //Order,
                     Delivery,
                     NoDelivery
     }

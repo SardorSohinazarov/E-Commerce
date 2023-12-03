@@ -89,9 +89,9 @@ namespace E_Commerce.Bot.BotServices
             {
                 "/start" => CommandForPhoneNumberRequest(botClient,update,cancellationToken),
                 "⬅️ Ortga" => CommandForPreviousRequest(botClient, update, cancellationToken, state),
-                "☎️ Biz bilan aloqa" => SendMessage.ForContactState(botClient, update, cancellationToken),
+                "☎️ Biz bilan aloqa" => CommandForContactRequest(botClient, update, cancellationToken),
                 "✍️ Fikr bildirish" => CommandForFeedbackRequest(botClient, update, cancellationToken),
-                "⚙️ Sozlamalar" => SendMessage.ForOptionsState(botClient, update, cancellationToken),
+                "⚙️ Sozlamalar" => CommandForOptionsRequest(botClient, update, cancellationToken),
                 "Ismni o'zgartirish" => CommandForChangeNameRequest(botClient, update, cancellationToken),
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
@@ -109,6 +109,20 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForOptionsRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+
+            return message;
+        }
+
+        private async ValueTask<Message> CommandForContactRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForContactState(botClient, update, cancellationToken);
+
+            return message;
         }
 
         private async ValueTask<Message> CommandForFeedbackRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -141,16 +155,17 @@ namespace E_Commerce.Bot.BotServices
 
         private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken,Status status)
         {
+            Message message;
             if(status == Status.ChangeName || status == Status.ChangeNumber)
             {
-                var message = await SendMessage.ForOptionsState(botClient,update, cancellationToken);
-                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Options);
+                message = await SendMessage.ForOptionsState(botClient,update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
                 return message;
             }
             //davomi bo'ladi
             else
             {
-                var message = await SendMessage.ForMainState(botClient,update, cancellationToken);
+                message = await SendMessage.ForMainState(botClient,update, cancellationToken);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
                 return message;
             }

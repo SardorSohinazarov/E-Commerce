@@ -1,5 +1,4 @@
-﻿using E_Commerce.Application.Services;
-using E_Commerce.Bot.BotServices.MessageSender;
+﻿using E_Commerce.Bot.BotServices.MessageSender;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -40,10 +39,20 @@ namespace E_Commerce.Bot.BotServices
             }
         }
 
-        private Task HandleUnknownMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        private async Task HandleContactAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var from = update.Message.From;
+            var contact = update.Message.Contact;
+
+            var client = await _clientService.UpdateClientPhoneNumberAsync(from.Id, contact.PhoneNumber);
+
+            Console.WriteLine($"Telefon no'mer keldiyu {update.Message.Contact.PhoneNumber}");
+
+            await SendMessage.ForMainState(botClient,update,cancellationToken);
         }
+
+        private async Task HandleUnknownMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+            => Console.WriteLine("Bizga kutilmagan typedagi xabar keldi");
 
         private Task HandleVideoAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
@@ -103,19 +112,6 @@ namespace E_Commerce.Bot.BotServices
         private Task HandleAudioAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
-        }
-
-        private async Task HandleContactAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
-        {
-            var from = update.Message.From;
-            var contact = update.Message.Contact;
-
-            //phoneNumber qo'shib stateni almashtirib qo'yadi
-            var client = await _clientService.UpdateClientPhoneNumberAsync(from.Id, contact.PhoneNumber);
-
-            Console.WriteLine($"Telefon no'mer keldiyu {update.Message.Contact.PhoneNumber}");
-
-            await SendMessage.ForMainState(botClient,update,cancellationToken);
         }
 
         private Task HandleLocationAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

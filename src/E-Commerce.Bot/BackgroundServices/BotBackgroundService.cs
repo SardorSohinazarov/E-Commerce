@@ -29,9 +29,9 @@ namespace E_Commerce.Bot.BackgroundServices
                 updateHandler: _updateHandler.HandleUpdateAsync,
                 pollingErrorHandler: _updateHandler.HandlePollingErrorAsync,
                 receiverOptions: new ReceiverOptions()
-                {
-                    ThrowPendingUpdates = true
-                },
+                    {
+                        ThrowPendingUpdates = true
+                    },
                 cancellationToken: stoppingToken
                 );
         }
