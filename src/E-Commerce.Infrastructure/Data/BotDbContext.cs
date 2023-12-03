@@ -1,4 +1,4 @@
-﻿using E_Commerce.Data.Entities;
+﻿using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Infrastructure.Data
