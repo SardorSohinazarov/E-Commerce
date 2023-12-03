@@ -8,28 +8,39 @@ namespace E_Commerce.Bot.BotServices
     {
         private async Task HandleTextMessageAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
+            var storageUser = await _clientService.GetClientAsync(update.Message.From.Id);
+            if(storageUser == null)
+            {
+
+            }
+
             var textMessage = update.Message.Text;
 
-            if(textMessage == "/start") 
-                 await SendMessage.ForPhoneNumberRequest(botClient, update, cancellationToken);
+            var texthandler = textMessage switch
+            {
+                "/start" => CommandForPhoneNumberRequest(botClient,update,cancellationToken),
+                "⬅️ Ortga" => SendMessage.ForMainState(botClient, update, cancellationToken),
+                "☎️ Biz bilan aloqa" => SendMessage.ForContactState(botClient, update, cancellationToken),
+                "✍️ Fikr bildirish" => SendMessage.ForCommentState(botClient, update, cancellationToken),
+                "ℹ️ Ma'lumot" => SendMessage.ForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" }),
+                "⚙️ Sozlamalar" => SendMessage.ForOptionsState(botClient, update, cancellationToken),
+                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
+                _ => throw new NotImplementedException()
+            };
 
-            if(textMessage == "⬅️ Ortga")
-                await SendMessage.ForMainState(botClient, update, cancellationToken);
+            try
+            {
+                await texthandler;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.Message);
+            }
+        }
 
-            if(textMessage == "☎️ Biz bilan aloqa")
-                await SendMessage.ForContactState(botClient, update, cancellationToken);
-
-            if(textMessage == "✍️ Fikr bildirish")
-                await SendMessage.ForCommentState(botClient, update, cancellationToken);
-
-            if (textMessage == "ℹ️ Ma'lumot")
-                await SendMessage.ForInformationState(botClient, update, cancellationToken, new List<string> { "Kukcha" });
-            
-            if (textMessage == "⚙️ Sozlamalar")
-                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
-
-            if(textMessage == "🛍 Buyurtma berish")
-                await SendMessage.ForOrdersState(botClient, update, cancellationToken);
+        public async ValueTask<Message> CommandForPhoneNumberRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            return await SendMessage.ForPhoneNumberRequest(botClient, update, cancellationToken);
         }
     }
 }
