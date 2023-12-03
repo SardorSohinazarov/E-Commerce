@@ -118,5 +118,21 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
+
+        public static async ValueTask<Message> ForChangeNameState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Ismingizni kiriting",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForChangeNameState(),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
     }
 }

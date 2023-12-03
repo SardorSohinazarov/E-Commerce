@@ -3,7 +3,16 @@
     public enum Status
     {
         Inactive,
-        Active,
-        Main,
+            Active,
+                Options,
+                    ChangeName,
+                    ChangeNumber,
+                    ChangeLanguage,
+                Information,
+                Contact,
+                Comment,
+                Order,
+                    Delivery,
+                    NoDelivery
     }
 }

@@ -69,6 +69,26 @@ namespace E_Commerce.Application.Services
             }
         }
 
+        public async ValueTask<Client> UpdateClientNameAsync(long telegramId, string name)
+        {
+            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
+
+            if (storageUser == null)
+            {
+                return storageUser;
+            }
+            else
+            {
+                storageUser.FirstName = name;
+                storageUser.Status = Status.Active;
+
+                var entry = _context.Clients.Update(storageUser);
+                await _context.SaveChangesAsync();
+
+                return entry.Entity;
+            }
+        }
+
         public async ValueTask<Client> UpdateClientPhoneNumberAsync(long telegramId, string phoneNumber)
         {
             var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
