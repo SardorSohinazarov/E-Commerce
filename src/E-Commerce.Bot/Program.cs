@@ -8,9 +8,7 @@ using Telegram.Bot.Polling;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHostedService<BotBackgroundService>();
-
 builder.Services.AddSingleton(new TelegramBotClient(builder.Configuration["TelegramBotAPIKey"]));
-
 builder.Services.AddSingleton<IUpdateHandler, UpdateHandlerService>();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
