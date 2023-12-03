@@ -7,5 +7,6 @@ namespace E_Commerce.Application.Services
         ValueTask<Branch> AddBranchAsync(Branch branch);
         ValueTask<List<Branch>> GetBranchesAsync();
         ValueTask<Branch> DeleteBranchAsync(int id);
+        ValueTask<Branch> GetBranchFromNameAsync(string name);
     }
 }

@@ -40,5 +40,15 @@ namespace E_Commerce.Application.Services
 
             return branches;
         }
+        
+        public async ValueTask<Branch> GetBranchFromNameAsync(string name)
+        {
+            var branche = await _context.Branches.FirstOrDefaultAsync(x => x.Name == name);
+
+            if (branche == null)
+                throw new Exception("Branch not found");
+
+            return branche;
+        }
     }
 }
