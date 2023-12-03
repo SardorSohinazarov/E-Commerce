@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Application.Abstruction;
 using E_Commerce.Domain.Entities;
+using E_Commerce.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Infrastructure.Data
@@ -17,5 +18,12 @@ namespace E_Commerce.Infrastructure.Data
 
         async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
             => await base.SaveChangesAsync(cancellationToken);
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new BranchConfiguration());
+        }
     }
 }
