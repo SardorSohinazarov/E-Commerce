@@ -52,7 +52,7 @@ namespace E_Commerce.Bot.BotServices
                     return;
                 }
             }
-            else if(state == Status.FeedbackGrade)
+            else if(state == Status.Grade)
             {
                 var feedbackGrades = new string[]{ "Hammasi yoqdi ♥️", "Yaxshi ⭐️⭐️⭐️⭐️", "Yoqmadi ⭐️⭐️⭐️", "Yomon ⭐️⭐️", "Juda yomon 👎🏻" };
                 if(feedbackGrades.Contains(textMessage))
@@ -100,8 +100,8 @@ namespace E_Commerce.Bot.BotServices
 
         private async ValueTask<Message> CommandForFeedbackRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            var message = await SendMessage.ForFeedbackGradeState(botClient, update, cancellationToken);
-            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.FeedbackGrade);
+            var message = await SendMessage.ForGradeState(botClient, update, cancellationToken);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Grade);
             return message;
         }
 

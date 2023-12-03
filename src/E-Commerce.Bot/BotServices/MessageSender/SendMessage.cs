@@ -54,7 +54,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             return message;
         }
 
-        public static async ValueTask<Message> ForFeedbackGradeState(
+        public static async ValueTask<Message> ForGradeState(
             ITelegramBotClient botClient,
             Update update,
             CancellationToken cancellationToken)
