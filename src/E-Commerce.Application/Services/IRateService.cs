@@ -1,10 +1,11 @@
-﻿using E_Commerce.Domain.Entities;
+﻿using E_Commerce.Application.DTOs;
+using E_Commerce.Domain.Entities;
 
 namespace E_Commerce.Application.Services
 {
     public interface IRateService
     {
-        ValueTask<Rate> AddRateAsync(Rate rate);
+        ValueTask<Rate> AddRateAsync(RateCreationDTO rateCreationDTO);
         ValueTask<List<Rate>> GetRatesAsync();
     }
 }

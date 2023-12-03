@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Application.Abstruction;
 using E_Commerce.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Application.Services
 {
@@ -10,14 +11,19 @@ namespace E_Commerce.Application.Services
         public FeedbackService(IApplicationDbContext context)
             => _context = context;
 
-        public ValueTask<Feedback> AddFeedbackAsync(Feedback feedback)
+        public async ValueTask<Feedback> AddFeedbackAsync(Feedback feedback)
         {
-            throw new NotImplementedException();
+            var entry = await _context.Feedbacks.AddAsync(feedback);
+            await _context.SaveChangesAsync();
+
+            return entry.Entity;
         }
 
-        public ValueTask<List<Feedback>> GetFeedbacksAsync()
+        public async ValueTask<List<Feedback>> GetFeedbacksAsync()
         {
-            throw new NotImplementedException();
+            var feedbacks = await _context.Feedbacks.ToListAsync();
+
+            return feedbacks;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Application.Abstruction;
+using E_Commerce.Application.DTOs;
 using E_Commerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,8 +12,24 @@ namespace E_Commerce.Application.Services
         public RateService(IApplicationDbContext context)
             => _context = context;
 
-        public async ValueTask<Rate> AddRateAsync(Rate rate)
+        public async ValueTask<Rate> AddRateAsync(RateCreationDTO rateCreationDTO)
         {
+            int grade = rateCreationDTO.RateText switch
+            {
+                "Juda yomon 👎🏻" => 1,
+                "Yomon ⭐️⭐️" => 2,
+                "Yoqmadi ⭐️⭐️⭐️" => 3,
+                "Yaxshi ⭐️⭐️⭐️⭐️" => 4,
+                "Hammasi yoqdi ♥️" => 5,
+                _ => 0
+            };
+
+            var rate = new Rate()
+            {
+                Grade = grade,
+                UserTelegramId = rateCreationDTO.UserTelegramId,
+            };
+
             var entry = await _context.Rates.AddAsync(rate);
             await _context.SaveChangesAsync();
 
