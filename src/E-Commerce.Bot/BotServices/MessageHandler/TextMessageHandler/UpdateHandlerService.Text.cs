@@ -35,6 +35,18 @@ namespace E_Commerce.Bot.BotServices
                 }
                 await SendMessage.ForOptionsState(botClient, update, cancellationToken);
                 return;
+            }else if(state == Status.ChangeNumber)
+            {
+                if(textMessage != "⬅️ Ortga")
+                {
+                    await _clientService.UpdateClientPhoneNumberAsync(from.Id, textMessage);
+                }
+                else
+                {
+                    await _clientService.UpdateClientUserStatusAsync(from.Id, Status.Active);
+                }
+                await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+                return;
             }
 
 
@@ -48,6 +60,7 @@ namespace E_Commerce.Bot.BotServices
                 "⚙️ Sozlamalar" => SendMessage.ForOptionsState(botClient, update, cancellationToken),
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 "Ismni o'zgartirish" => CommandForChangeNameRequest(botClient, update, cancellationToken),
+                "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -59,6 +72,13 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForChangeNumberRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForChangeNumberState(botClient, update, cancellationToken);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.ChangeNumber);
+            return message;
         }
 
         private async ValueTask<Message> CommandForChangeNameRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

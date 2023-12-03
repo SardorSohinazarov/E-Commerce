@@ -134,5 +134,21 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
+        
+        public static async ValueTask<Message> ForChangeNumberState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "📱 Raqamni +998 ** *** ** ** shakilda yuboring.",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForChangeNumberState(),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
     }
 }

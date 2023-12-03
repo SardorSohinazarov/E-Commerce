@@ -167,5 +167,13 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+        
+        public static async ValueTask<ReplyKeyboardMarkup> ForChangeNumberState()
+        {
+            var keyboardButton = new KeyboardButton("⬅️ Ortga");
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButton);
+
+            return replyKeyboardMarkup;
+        }
     }
 }
