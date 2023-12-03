@@ -13,6 +13,7 @@ namespace E_Commerce.Infrastructure.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Branch> Branches { get; set; }
 
         async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
             => await base.SaveChangesAsync(cancellationToken);
