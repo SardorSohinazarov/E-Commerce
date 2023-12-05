@@ -236,5 +236,22 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
+
+        internal static async ValueTask<Message> ForPickUpState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            List<string> filials)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Siz qayerda joylashgansiz 👀?\r\nAgar lokatsiyangizni jo'natsangiz 📍, sizga yaqin bo'lgan filialni aniqlaymiz",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForPickUpState(filials),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
     }
 }

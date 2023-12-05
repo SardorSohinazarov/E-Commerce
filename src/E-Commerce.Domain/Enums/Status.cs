@@ -17,6 +17,6 @@
         Feedback,
         //Order,
         Delivery,
-        NoDelivery
+        PickUp
     }
 }

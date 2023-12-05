@@ -115,6 +115,7 @@ namespace E_Commerce.Bot.BotServices
                 "🚖 Yetkazib berish" => CommandForDeliveryState(botClient,update,cancellationToken),
                 //refactor qilinmaganlari
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
+                "🏃 Olib ketish" => CommandForPickUpState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -125,6 +126,40 @@ namespace E_Commerce.Bot.BotServices
             catch (Exception ex)
             {
                 Console.WriteLine("Exception:" + ex.Message);
+            }
+        }
+
+        private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, Status status)
+        {
+            Message message;
+            if (status == Status.ChangeName || status == Status.ChangeNumber)
+            {
+                message = await SendMessage.ForOptionsState(botClient, update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+
+                return message;
+            }
+            else if (status == Status.Information)
+            {
+                message = await SendMessage.ForMainState(botClient, update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+
+                return message;
+            }
+            else if (status == Status.Delivery || status == Status.PickUp)
+            {
+                message = await SendMessage.ForOrdersState(botClient, update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+
+                return message;
+            }
+            //to be continued
+            else
+            {
+                message = await SendMessage.ForMainState(botClient, update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+
+                return message;
             }
         }
     }

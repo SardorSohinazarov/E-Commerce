@@ -213,5 +213,48 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+
+        internal static async Task<ReplyKeyboardMarkup> ForPickUpState(List<string> filials)
+        {
+            var keyboardButtons = new List<List<KeyboardButton>>()
+            {
+                new List<KeyboardButton>
+                {
+                    KeyboardButton.WithRequestLocation("Eng yaqin filialni aniqlash"),
+                },
+            };
+
+            var filialsCount = filials.Count;
+
+            var rowCount = filialsCount / 2;
+
+            for (int i = 0; i < rowCount; i=+2)
+            {
+                keyboardButtons.Add(
+                    new List<KeyboardButton>
+                    {
+                        KeyboardButton.WithRequestLocation(filials[i]),
+                        KeyboardButton.WithRequestLocation(filials[i+1]),
+                    });
+            }
+
+            if(filialsCount % 2 == 1) 
+            {
+                keyboardButtons.Add(
+                    new List<KeyboardButton>
+                    {
+                        KeyboardButton.WithRequestLocation(filials[filialsCount - 1]),
+                    });
+            }
+
+            keyboardButtons.Add(new List<KeyboardButton>()
+                {
+                    new KeyboardButton("⬅️ Ortga")
+                });
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
+
+            return replyKeyboardMarkup;
+        }
     }
 }

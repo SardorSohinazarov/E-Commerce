@@ -16,6 +16,15 @@ namespace E_Commerce.Bot.BotServices
             return storageUser;
         }
 
+        private async ValueTask<Message> CommandForPickUpState(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var branchNames = (await _branchService.GetBranchesAsync()).Select(x => x.Name).ToList();
+            var message = await SendMessage.ForPickUpState(botClient, update, cancellationToken, branchNames);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUp);
+
+            return message;
+        }
+
         private async ValueTask<Message> CommandForDeliveryState(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             var message = await SendMessage.ForDeliveryState(botClient, update, cancellationToken);
@@ -77,39 +86,6 @@ namespace E_Commerce.Bot.BotServices
             await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.ChangeName);
 
             return message;
-        }
-
-        private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, Status status)
-        {
-            Message message;
-            if (status == Status.ChangeName || status == Status.ChangeNumber)
-            {
-                message = await SendMessage.ForOptionsState(botClient, update, cancellationToken);
-                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
-
-                return message;
-            }
-            else if (status == Status.Information)
-            {
-                message = await SendMessage.ForMainState(botClient, update, cancellationToken);
-                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
-
-                return message;
-            } else if (status == Status.Delivery)
-            {
-                message = await SendMessage.ForOrdersState(botClient, update, cancellationToken);
-                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
-
-                return message;
-            }
-            //to be continued
-            else
-            {
-                message = await SendMessage.ForMainState(botClient, update, cancellationToken);
-                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
-
-                return message;
-            }
         }
 
         public async ValueTask<Message> CommandForPhoneNumberRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
