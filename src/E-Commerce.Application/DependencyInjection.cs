@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Application.Services.Baskets;
 using E_Commerce.Application.Services.Branches;
+using E_Commerce.Application.Services.Categories;
 using E_Commerce.Application.Services.Clients;
 using E_Commerce.Application.Services.Feedbacks;
 using E_Commerce.Application.Services.Orders;
@@ -22,6 +23,7 @@ namespace E_Commerce.Application
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IProductListService, ProductListService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             return services;
         }

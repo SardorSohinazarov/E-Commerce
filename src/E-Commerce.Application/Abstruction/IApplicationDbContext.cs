@@ -13,6 +13,7 @@ namespace E_Commerce.Application.Abstruction
         public DbSet<Order> Orders { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<ProductList> ProductLists { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public ValueTask<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
