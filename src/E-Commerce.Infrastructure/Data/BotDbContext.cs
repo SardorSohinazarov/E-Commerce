@@ -15,6 +15,9 @@ namespace E_Commerce.Infrastructure.Data
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Branch> Branches { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
             => await base.SaveChangesAsync(cancellationToken);

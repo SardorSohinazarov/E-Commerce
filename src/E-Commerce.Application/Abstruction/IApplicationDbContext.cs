@@ -9,6 +9,9 @@ namespace E_Commerce.Application.Abstruction
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Branch> Branches { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         public ValueTask<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
