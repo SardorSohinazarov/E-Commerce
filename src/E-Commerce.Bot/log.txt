@@ -170,3 +170,564 @@ ORDER BY [MigrationId];
 2023-12-05 22:38:03.589 +05:00 [INF] Hosting environment: Development
 2023-12-05 22:38:03.733 +05:00 [INF] Content root path: D:\Projects\E-Commerce\src\E-Commerce.Bot\
 2023-12-05 22:38:03.877 +05:00 [DBG] Hosting started
+2023-12-05 22:39:57.754 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:39:58.859 +05:00 [DBG] The property 'ProductList.BasketId' was created in shadow state because there are no eligible CLR members with a matching name.
+2023-12-05 22:39:59.115 +05:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:39:59.314 +05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:39:59.741 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:40:00.080 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:00.318 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:01.189 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:01.469 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:01.767 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (276ms).
+2023-12-05 22:40:01.984 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:02.258 +05:00 [INF] Executed DbCommand (273ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:02.495 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:02.721 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:02.966 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:40:03.160 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (194ms).
+2023-12-05 22:40:03.392 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:03.604 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:03.807 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:04.007 +05:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:04.165 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:04.325 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:04.493 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:04.688 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:04.893 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:05.165 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (271ms).
+2023-12-05 22:40:05.396 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:05.717 +05:00 [INF] Executed DbCommand (318ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:05.995 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:06.212 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:06.433 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:40:06.587 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (154ms).
+2023-12-05 22:40:06.741 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:06.910 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:07.052 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:07.204 +05:00 [INF] Executed DbCommand (149ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:07.380 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:07.589 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:07.770 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:07.926 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (156ms).
+2023-12-05 22:40:08.095 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:08.259 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:08.455 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:40:08.601 +05:00 [INF] Executed DbCommand (143ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:40:08.762 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:08.914 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:09.104 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:09.265 +05:00 [INF] Applying migration '20231205173742_Product-Basket-Order-Tables'.
+2023-12-05 22:40:09.567 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:09.781 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:09.958 +05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-05 22:40:10.138 +05:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-12-05 22:40:10.284 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:10.463 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (179ms).
+2023-12-05 22:40:10.645 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Baskets] (
+    [Id] bigint NOT NULL IDENTITY,
+    [IsActive] bit NOT NULL,
+    [ClientTelegramId] bigint NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Baskets] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:10.848 +05:00 [INF] Executed DbCommand (201ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Baskets] (
+    [Id] bigint NOT NULL IDENTITY,
+    [IsActive] bit NOT NULL,
+    [ClientTelegramId] bigint NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Baskets] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:11.010 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:11.171 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (160ms).
+2023-12-05 22:40:11.378 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] bigint NOT NULL IDENTITY,
+    [Amount] decimal(18,2) NOT NULL,
+    [BasketId] bigint NOT NULL,
+    [FromBranchId] int NOT NULL,
+    [Longitude] float NULL,
+    [Latitude] float NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:11.569 +05:00 [INF] Executed DbCommand (189ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] bigint NOT NULL IDENTITY,
+    [Amount] decimal(18,2) NOT NULL,
+    [BasketId] bigint NOT NULL,
+    [FromBranchId] int NOT NULL,
+    [Longitude] float NULL,
+    [Latitude] float NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:11.761 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:11.949 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (188ms).
+2023-12-05 22:40:12.130 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [ImagePath] nvarchar(max) NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:12.345 +05:00 [INF] Executed DbCommand (212ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [ImagePath] nvarchar(max) NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id])
+);
+2023-12-05 22:40:12.568 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:12.756 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (188ms).
+2023-12-05 22:40:12.921 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ProductLists] (
+    [Id] int NOT NULL IDENTITY,
+    [Count] int NULL,
+    [ProductId] int NOT NULL,
+    [UserTelegramId] bigint NOT NULL,
+    [BasketId] bigint NULL,
+    CONSTRAINT [PK_ProductLists] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProductLists_Baskets_BasketId] FOREIGN KEY ([BasketId]) REFERENCES [Baskets] ([Id])
+);
+2023-12-05 22:40:13.103 +05:00 [INF] Executed DbCommand (179ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ProductLists] (
+    [Id] int NOT NULL IDENTITY,
+    [Count] int NULL,
+    [ProductId] int NOT NULL,
+    [UserTelegramId] bigint NOT NULL,
+    [BasketId] bigint NULL,
+    CONSTRAINT [PK_ProductLists] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProductLists_Baskets_BasketId] FOREIGN KEY ([BasketId]) REFERENCES [Baskets] ([Id])
+);
+2023-12-05 22:40:13.276 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:13.426 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (149ms).
+2023-12-05 22:40:13.589 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Branches] SET [CreatedDate] = '2023-12-05T22:37:34.2911038+05:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:13.800 +05:00 [INF] Executed DbCommand (209ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Branches] SET [CreatedDate] = '2023-12-05T22:37:34.2911038+05:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:14.002 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:14.191 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (188ms).
+2023-12-05 22:40:14.399 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Branches] SET [CreatedDate] = '2023-12-05T22:37:34.2911064+05:00'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:14.662 +05:00 [INF] Executed DbCommand (259ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Branches] SET [CreatedDate] = '2023-12-05T22:37:34.2911064+05:00'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:14.929 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:15.220 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (290ms).
+2023-12-05 22:40:15.487 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductLists_BasketId] ON [ProductLists] ([BasketId]);
+2023-12-05 22:40:15.732 +05:00 [INF] Executed DbCommand (243ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductLists_BasketId] ON [ProductLists] ([BasketId]);
+2023-12-05 22:40:15.961 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:16.225 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (263ms).
+2023-12-05 22:40:16.492 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231205173742_Product-Basket-Order-Tables', N'6.0.11');
+2023-12-05 22:40:16.699 +05:00 [INF] Executed DbCommand (205ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231205173742_Product-Basket-Order-Tables', N'6.0.11');
+2023-12-05 22:40:16.888 +05:00 [DBG] Committing transaction.
+2023-12-05 22:40:17.057 +05:00 [DBG] Committed transaction.
+2023-12-05 22:40:17.212 +05:00 [DBG] Disposing transaction.
+2023-12-05 22:40:17.359 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:17.510 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:17.790 +05:00 [DBG] Compiling query expression: 
+'DbSet<Client>()
+    .FirstOrDefault(x => x.TelegramId == __id_0)'
+2023-12-05 22:40:18.194 +05:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Client>(
+    asyncEnumerable: new SingleQueryingEnumerable<Client>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Client.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Client.CreatedDate (DateTime) Required, 1], [Property: Client.FirstName (string) Required, 2], [Property: Client.LanguageCode (string), 3], [Property: Client.LastName (string), 4], [Property: Client.PhoneNumber (string), 5], [Property: Client.Status (Status) Required, 6], [Property: Client.TelegramId (long) Required, 7], [Property: Client.Username (string), 8] }
+            SELECT TOP(1) c.Id, c.CreatedDate, c.FirstName, c.LanguageCode, c.LastName, c.PhoneNumber, c.Status, c.TelegramId, c.Username
+            FROM Clients AS c
+            WHERE c.TelegramId == @__id_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Client>, 
+        E_Commerce.Infrastructure.Data.BotDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2023-12-05 22:40:18.450 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:18.604 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (153ms).
+2023-12-05 22:40:18.760 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:18.913 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:19.082 +05:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:19.339 +05:00 [INF] Executed DbCommand (266ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:19.537 +05:00 [DBG] Context 'BotDbContext' started tracking 'Client' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:19.761 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:19.931 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:20.092 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:27.592 +05:00 [DBG] 'BotDbContext' generated a temporary value for the property 'Id.Feedback'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:30.906 +05:00 [DBG] Context 'BotDbContext' started tracking 'Feedback' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:31.105 +05:00 [DBG] SaveChanges starting for 'BotDbContext'.
+2023-12-05 22:40:31.268 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:40:31.460 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:40:31.684 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:31.848 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:32.030 +05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-05 22:40:32.192 +05:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-12-05 22:40:32.422 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:32.567 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (145ms).
+2023-12-05 22:40:32.728 +05:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Feedbacks] ([CreatedDate], [Text], [UserTelegramId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [Feedbacks]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-12-05 22:40:32.938 +05:00 [INF] Executed DbCommand (199ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Feedbacks] ([CreatedDate], [Text], [UserTelegramId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [Feedbacks]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-12-05 22:40:33.460 +05:00 [DBG] The foreign key property 'Feedback.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2023-12-05 22:40:33.623 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:33.774 +05:00 [DBG] Committing transaction.
+2023-12-05 22:40:33.929 +05:00 [DBG] Committed transaction.
+2023-12-05 22:40:34.102 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:34.278 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:34.472 +05:00 [DBG] Disposing transaction.
+2023-12-05 22:40:34.660 +05:00 [DBG] An entity of type 'Feedback' tracked by 'BotDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:34.855 +05:00 [DBG] SaveChanges completed for 'BotDbContext' with 1 entities written to the database.
+2023-12-05 22:40:35.027 +05:00 [DBG] Compiling query expression: 
+'DbSet<Client>()
+    .FirstOrDefault(x => x.TelegramId == __telegramId_0)'
+2023-12-05 22:40:35.214 +05:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Client>(
+    asyncEnumerable: new SingleQueryingEnumerable<Client>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Client.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Client.CreatedDate (DateTime) Required, 1], [Property: Client.FirstName (string) Required, 2], [Property: Client.LanguageCode (string), 3], [Property: Client.LastName (string), 4], [Property: Client.PhoneNumber (string), 5], [Property: Client.Status (Status) Required, 6], [Property: Client.TelegramId (long) Required, 7], [Property: Client.Username (string), 8] }
+            SELECT TOP(1) c.Id, c.CreatedDate, c.FirstName, c.LanguageCode, c.LastName, c.PhoneNumber, c.Status, c.TelegramId, c.Username
+            FROM Clients AS c
+            WHERE c.TelegramId == @__telegramId_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Client>, 
+        E_Commerce.Infrastructure.Data.BotDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2023-12-05 22:40:35.407 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:35.574 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (167ms).
+2023-12-05 22:40:35.732 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:35.884 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:36.060 +05:00 [DBG] Executing DbCommand [Parameters=[@__telegramId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__telegramId_0
+2023-12-05 22:40:36.221 +05:00 [INF] Executed DbCommand (158ms) [Parameters=[@__telegramId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__telegramId_0
+2023-12-05 22:40:36.401 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:36.548 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:37.026 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:37.202 +05:00 [DBG] An entity of type 'Client' tracked by 'BotDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:37.381 +05:00 [DBG] SaveChanges starting for 'BotDbContext'.
+2023-12-05 22:40:37.525 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:40:37.675 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:40:37.844 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:37.986 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:38.167 +05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-05 22:40:38.314 +05:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-12-05 22:40:38.492 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:38.649 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (157ms).
+2023-12-05 22:40:38.840 +05:00 [DBG] Executing DbCommand [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int64), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Clients] SET [CreatedDate] = @p0, [FirstName] = @p1, [LanguageCode] = @p2, [LastName] = @p3, [PhoneNumber] = @p4, [Status] = @p5, [TelegramId] = @p6, [Username] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:38.993 +05:00 [INF] Executed DbCommand (151ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int64), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Clients] SET [CreatedDate] = @p0, [FirstName] = @p1, [LanguageCode] = @p2, [LastName] = @p3, [PhoneNumber] = @p4, [Status] = @p5, [TelegramId] = @p6, [Username] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+2023-12-05 22:40:39.147 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:39.310 +05:00 [DBG] Committing transaction.
+2023-12-05 22:40:39.470 +05:00 [DBG] Committed transaction.
+2023-12-05 22:40:39.661 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:39.823 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:39.985 +05:00 [DBG] Disposing transaction.
+2023-12-05 22:40:40.123 +05:00 [DBG] An entity of type 'Client' tracked by 'BotDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:40.270 +05:00 [DBG] SaveChanges completed for 'BotDbContext' with 1 entities written to the database.
+2023-12-05 22:40:40.636 +05:00 [DBG] 'BotDbContext' disposed.
+2023-12-05 22:40:40.904 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:40:41.113 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:41.287 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:41.473 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:41.657 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:41.856 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (199ms).
+2023-12-05 22:40:42.051 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:42.209 +05:00 [INF] Executed DbCommand (154ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:42.351 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:42.562 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:42.754 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:40:42.933 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (178ms).
+2023-12-05 22:40:43.116 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:43.317 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:43.518 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:43.744 +05:00 [INF] Executed DbCommand (222ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:43.986 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:44.239 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:44.450 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:44.643 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:44.879 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:40:45.139 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (259ms).
+2023-12-05 22:40:45.358 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:45.608 +05:00 [INF] Executed DbCommand (245ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:40:45.788 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:45.948 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:46.096 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:40:46.243 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (147ms).
+2023-12-05 22:40:46.447 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:46.607 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:46.777 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:46.966 +05:00 [INF] Executed DbCommand (186ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:40:47.116 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:47.297 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:47.475 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:47.633 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (157ms).
+2023-12-05 22:40:47.812 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:47.950 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:48.106 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:40:48.270 +05:00 [INF] Executed DbCommand (160ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:40:48.430 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:48.578 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:48.743 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:48.922 +05:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-05 22:40:49.106 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:49.281 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (175ms).
+2023-12-05 22:40:49.637 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:49.767 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:49.890 +05:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:50.031 +05:00 [INF] Executed DbCommand (134ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:50.156 +05:00 [DBG] Context 'BotDbContext' started tracking 'Client' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:40:50.286 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:50.406 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:50.535 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:50.670 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:40:50.791 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (121ms).
+2023-12-05 22:40:50.932 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:51.178 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:51.412 +05:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:51.644 +05:00 [INF] Executed DbCommand (226ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:40:51.848 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:40:52.032 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:40:52.247 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:00.856 +05:00 [DBG] 'BotDbContext' disposed.
+2023-12-05 22:41:01.208 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:41:01.480 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:01.733 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:01.985 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:02.250 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:41:02.501 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (251ms).
+2023-12-05 22:41:02.798 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:03.086 +05:00 [INF] Executed DbCommand (285ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:03.301 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:03.496 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:03.691 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:41:03.917 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (225ms).
+2023-12-05 22:41:04.203 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:04.541 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:04.770 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:04.995 +05:00 [INF] Executed DbCommand (218ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:05.184 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:05.334 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:05.506 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:05.705 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:05.878 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:41:06.027 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (148ms).
+2023-12-05 22:41:06.176 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:06.333 +05:00 [INF] Executed DbCommand (154ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:06.489 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:06.652 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:06.814 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:41:06.960 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (146ms).
+2023-12-05 22:41:07.124 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:07.289 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:07.488 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:07.654 +05:00 [INF] Executed DbCommand (164ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:07.830 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:07.992 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:08.183 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:41:08.344 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (161ms).
+2023-12-05 22:41:08.537 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:08.779 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:08.940 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:41:09.143 +05:00 [INF] Executed DbCommand (199ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:41:09.316 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:41:09.469 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:09.630 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:09.782 +05:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-05 22:41:09.978 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:41:10.161 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (182ms).
+2023-12-05 22:41:10.343 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:10.593 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:10.750 +05:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:41:10.930 +05:00 [INF] Executed DbCommand (174ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:41:11.096 +05:00 [DBG] Context 'BotDbContext' started tracking 'Client' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:41:11.264 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:41:11.466 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:11.624 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:11.928 +05:00 [DBG] 'BotDbContext' disposed.
+2023-12-05 22:41:17.342 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:41:17.509 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:17.655 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:17.815 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:17.966 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:41:18.117 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (151ms).
+2023-12-05 22:41:18.283 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:18.451 +05:00 [INF] Executed DbCommand (166ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:18.603 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:18.745 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:18.898 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:41:19.055 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (157ms).
+2023-12-05 22:41:19.229 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:19.383 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:19.539 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:19.699 +05:00 [INF] Executed DbCommand (156ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:19.888 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:20.045 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:20.188 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:20.367 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:20.530 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:41:20.738 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (208ms).
+2023-12-05 22:41:20.902 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:21.077 +05:00 [INF] Executed DbCommand (171ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:41:21.247 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:21.446 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:21.597 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:41:21.959 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (361ms).
+2023-12-05 22:41:22.100 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:22.247 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:22.400 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:22.548 +05:00 [INF] Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:41:22.697 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:22.845 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:23.022 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:41:23.167 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (144ms).
+2023-12-05 22:41:23.305 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:23.466 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:23.607 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:41:23.775 +05:00 [INF] Executed DbCommand (166ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:41:23.923 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:41:24.094 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:24.240 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:24.418 +05:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-05 22:41:24.562 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:41:30.691 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (6128ms).
+2023-12-05 22:41:33.881 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:34.026 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:41:34.174 +05:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:41:34.338 +05:00 [INF] Executed DbCommand (155ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[FirstName], [c].[LanguageCode], [c].[LastName], [c].[PhoneNumber], [c].[Status], [c].[TelegramId], [c].[Username]
+FROM [Clients] AS [c]
+WHERE [c].[TelegramId] = @__id_0
+2023-12-05 22:41:34.515 +05:00 [DBG] Context 'BotDbContext' started tracking 'Client' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.

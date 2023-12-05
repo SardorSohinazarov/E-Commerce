@@ -16,14 +16,14 @@ builder.Services.AddSingleton<IUpdateHandler, UpdateHandlerService>();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
-Log.Logger = new LoggerConfiguration()
+/*Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
     .WriteTo.TeleSink("6668691456:AAFVKAI9X2J4FUMX37yTzA2DwmGbdQZvKD4", "5617428170")
     .WriteTo.File("log.txt")
     .CreateLogger();
 
-builder.Logging.AddSerilog();
+builder.Logging.AddSerilog();*/
 
 var app = builder.Build();
 
