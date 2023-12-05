@@ -9,6 +9,6 @@ namespace E_Commerce.Domain.Entities
         public bool IsActive { get; set; }
         public long ClientTelegramId { get; set; }
 
-        public List<Tuple<int,Product>> Products { get; set; }
+        public List<ProductList> Products { get; set; }
     }
 }

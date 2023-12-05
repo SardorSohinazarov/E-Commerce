@@ -28,7 +28,11 @@ namespace E_Commerce.Application.Services.Baskets
             if (basket == null)
                 throw new Exception("Basket not found");
 
-            var productWithCount = new Tuple<int, Product>(count,product);
+            var productWithCount = new ProductList()
+            {
+                Count = count,
+                ProductId = product.Id,
+            };
             basket.Products.Add(productWithCount);
             var entry = _context.Baskets.Update(basket);
             await _context.SaveChangesAsync();
