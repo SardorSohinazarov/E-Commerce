@@ -194,5 +194,24 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+
+        internal static async Task<IReplyMarkup?> ForLocationRequest()
+        {
+            var keyboardButtons = new List<List<KeyboardButton>>()
+            {
+                new List<KeyboardButton>
+                {
+                    KeyboardButton.WithRequestLocation("Eng yaqin filialni aniqlash"),
+                }, 
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("⬅️ Ortga")
+                }
+            };
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
+
+            return replyKeyboardMarkup;
+        }
     }
 }

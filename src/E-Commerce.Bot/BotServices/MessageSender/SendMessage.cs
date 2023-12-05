@@ -126,7 +126,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
         {
             var message = await botClient.SendTextMessageAsync(
                     chatId: update.Message.Chat.Id,
-                    text: "⚙️ Sozlamalar",
+                    text: "Okay, pick up or delivery?",
                     parseMode: ParseMode.Html,
                     replyMarkup: await ReplyKeyboardMarkups.ForOrdersState(),
                     cancellationToken: cancellationToken
@@ -215,6 +215,22 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     chatId: update.Message.Chat.Id,
                     text: "Malumot topilmadi",
                     parseMode: ParseMode.Html,
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> ForDeliveryState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Buyurtmangizni qayerga yetkazib berish kerak 🚙?",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForLocationRequest(),
                     cancellationToken: cancellationToken
                 );
 

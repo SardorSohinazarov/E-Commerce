@@ -16,6 +16,14 @@ namespace E_Commerce.Bot.BotServices
             return storageUser;
         }
 
+        private async ValueTask<Message> CommandForDeliveryState(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var message = await SendMessage.ForDeliveryState(botClient, update, cancellationToken);
+            await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Delivery);
+
+            return message;
+        }
+
         private async ValueTask<Message> CommandForInformationRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             var branchNames = (await _branchService.GetBranchesAsync()).Select(x => x.Name).ToList();
@@ -84,6 +92,12 @@ namespace E_Commerce.Bot.BotServices
             else if (status == Status.Information)
             {
                 message = await SendMessage.ForMainState(botClient, update, cancellationToken);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
+
+                return message;
+            } else if (status == Status.Delivery)
+            {
+                message = await SendMessage.ForOrdersState(botClient, update, cancellationToken);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.Active);
 
                 return message;

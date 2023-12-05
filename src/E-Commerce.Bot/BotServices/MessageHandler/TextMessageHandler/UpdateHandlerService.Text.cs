@@ -112,6 +112,7 @@ namespace E_Commerce.Bot.BotServices
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
                 "ℹ️ Ma'lumot" => CommandForInformationRequest(botClient, update, cancellationToken),
+                "🚖 Yetkazib berish" => CommandForDeliveryState(botClient,update,cancellationToken),
                 //refactor qilinmaganlari
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
