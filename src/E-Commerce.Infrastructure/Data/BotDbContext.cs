@@ -19,6 +19,7 @@ namespace E_Commerce.Infrastructure.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<ProductList> ProductLists { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
             => await base.SaveChangesAsync(cancellationToken);
@@ -28,6 +29,8 @@ namespace E_Commerce.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         }
     }
 }

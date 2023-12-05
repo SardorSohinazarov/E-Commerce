@@ -4,6 +4,7 @@ using E_Commerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    partial class BotDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231205213814_Product-Category-Relation")]
+    partial class ProductCategoryRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,7 +79,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 2, 49, 12, 487, DateTimeKind.Local).AddTicks(8429),
+                            CreatedDate = new DateTime(2023, 12, 6, 2, 38, 14, 638, DateTimeKind.Local).AddTicks(3705),
                             Description = "Ajoyib filialimiz",
                             Latitude = 60.0,
                             Longitude = 50.0,
@@ -86,7 +88,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 2, 49, 12, 487, DateTimeKind.Local).AddTicks(8476),
+                            CreatedDate = new DateTime(2023, 12, 6, 2, 38, 14, 638, DateTimeKind.Local).AddTicks(3722),
                             Description = "Bu ham juda ajoyib filial",
                             Latitude = 61.0,
                             Longitude = 56.0,

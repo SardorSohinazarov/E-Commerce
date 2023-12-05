@@ -16,7 +16,8 @@ builder.Services.AddSingleton<IUpdateHandler, UpdateHandlerService>();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
-/*Log.Logger = new LoggerConfiguration()
+/* Serilog implementation
+ * Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
     .WriteTo.TeleSink("6668691456:AAFVKAI9X2J4FUMX37yTzA2DwmGbdQZvKD4", "5617428170")
