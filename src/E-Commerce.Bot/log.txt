@@ -1,3 +1,172 @@
 2023-12-05 22:07:18.304 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
 2023-12-05 22:08:39.035 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
 2023-12-05 22:09:25.727 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:29:57.851 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:30:30.443 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:36:58.096 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:36:59.333 +05:00 [DBG] The property 'ProductList.BasketId' was created in shadow state because there are no eligible CLR members with a matching name.
+2023-12-05 22:36:59.513 +05:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:36:59.660 +05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:36:59.907 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:37:00.229 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:00.425 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:02.388 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:02.540 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:37:02.699 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (147ms).
+2023-12-05 22:37:02.862 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:03.015 +05:00 [INF] Executed DbCommand (165ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:03.157 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:03.298 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:03.460 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:37:03.603 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (143ms).
+2023-12-05 22:37:03.744 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:03.877 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:04.023 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:04.321 +05:00 [INF] Executed DbCommand (298ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:04.551 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:04.720 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:04.859 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:05.010 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:05.142 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:37:05.284 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (142ms).
+2023-12-05 22:37:05.491 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:05.701 +05:00 [INF] Executed DbCommand (211ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:05.855 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:06.000 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:06.166 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:37:06.296 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (130ms).
+2023-12-05 22:37:06.431 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:06.571 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:06.703 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:06.850 +05:00 [INF] Executed DbCommand (147ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:07.052 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:07.255 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:07.497 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:37:07.652 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (155ms).
+2023-12-05 22:37:07.796 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:07.946 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:08.083 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:37:08.233 +05:00 [INF] Executed DbCommand (151ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:37:08.404 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:37:08.541 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:08.671 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:08.834 +05:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-05 22:37:11.982 +05:00 [DBG] 'BotDbContext' disposed.
+2023-12-05 22:37:24.591 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-05 22:37:25.646 +05:00 [DBG] The property 'ProductList.BasketId' was created in shadow state because there are no eligible CLR members with a matching name.
+2023-12-05 22:37:25.903 +05:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:37:26.113 +05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:37:26.380 +05:00 [INF] Entity Framework Core 6.0.11 initialized 'BotDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+2023-12-05 22:37:26.640 +05:00 [DBG] Migrating using database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:26.862 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:27.208 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:27.411 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:37:27.670 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (251ms).
+2023-12-05 22:37:27.845 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:28.044 +05:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:28.223 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:28.449 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:28.679 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:37:28.936 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (256ms).
+2023-12-05 22:37:29.219 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:29.474 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:29.681 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:29.858 +05:00 [INF] Executed DbCommand (177ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:30.005 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:30.147 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:30.280 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:30.445 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:30.599 +05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-05 22:37:30.759 +05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (159ms).
+2023-12-05 22:37:30.909 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:31.051 +05:00 [INF] Executed DbCommand (142ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-05 22:37:31.189 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:31.336 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:31.500 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-05 22:37:31.652 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (152ms).
+2023-12-05 22:37:31.813 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:31.958 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:32.111 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:32.269 +05:00 [INF] Executed DbCommand (158ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-05 22:37:32.422 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:32.569 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:32.772 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-05 22:37:32.934 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (162ms).
+2023-12-05 22:37:33.087 +05:00 [DBG] Opening connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:33.223 +05:00 [DBG] Opened connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:33.360 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:37:33.530 +05:00 [INF] Executed DbCommand (170ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-05 22:37:33.691 +05:00 [DBG] A data reader was disposed.
+2023-12-05 22:37:33.828 +05:00 [DBG] Closing connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:33.966 +05:00 [DBG] Closed connection to database 'E-CommerceBotDb' on server '(localdb)\MSSQLLocalDB'.
+2023-12-05 22:37:34.132 +05:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-05 22:37:34.293 +05:00 [DBG] The property 'ProductList.BasketId' was created in shadow state because there are no eligible CLR members with a matching name.
+2023-12-05 22:37:34.454 +05:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:37:34.608 +05:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-05 22:37:34.892 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:38.087 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:38.273 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:38.472 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:38.715 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:38.869 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:39.030 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:39.174 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:39.334 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:37:39.488 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:37:39.654 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:37:39.793 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:37:39.986 +05:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2023-12-05 22:37:40.150 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:40.285 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:40.495 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:40.672 +05:00 [DBG] Context 'BotDbContext' started tracking 'Branch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:40.811 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:40.949 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:41.095 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:41.238 +05:00 [DBG] An entity of type 'Branch' tracked by 'BotDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-12-05 22:37:41.381 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:37:41.517 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:37:41.676 +05:00 [DBG] DetectChanges starting for 'BotDbContext'.
+2023-12-05 22:37:41.835 +05:00 [DBG] DetectChanges completed for 'BotDbContext'.
+2023-12-05 22:37:41.995 +05:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2023-12-05 22:37:42.215 +05:00 [DBG] 'BotDbContext' disposed.
+2023-12-05 22:38:00.284 +05:00 [DBG] Hosting starting
+2023-12-05 22:38:02.117 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 48B5C25D28A3CD383C7EC621ED0CA705305F54F9)
+2023-12-05 22:38:02.304 +05:00 [INF] Telegram bot :{bot.Username} is started listening
+2023-12-05 22:38:02.570 +05:00 [INF] Now listening on: https://localhost:7201
+2023-12-05 22:38:02.832 +05:00 [INF] Now listening on: http://localhost:5083
+2023-12-05 22:38:02.979 +05:00 [DBG] Loaded hosting startup assembly E-Commerce.Bot
+2023-12-05 22:38:03.135 +05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2023-12-05 22:38:03.278 +05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2023-12-05 22:38:03.448 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-05 22:38:03.589 +05:00 [INF] Hosting environment: Development
+2023-12-05 22:38:03.733 +05:00 [INF] Content root path: D:\Projects\E-Commerce\src\E-Commerce.Bot\
+2023-12-05 22:38:03.877 +05:00 [DBG] Hosting started

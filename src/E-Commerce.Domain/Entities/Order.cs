@@ -11,6 +11,8 @@ namespace E_Commerce.Domain.Entities
 
         public int FromBranchId { get; set; }
         //Branchni locationini ham shunaqa qilish kerak
-        public Tuple<double,double> ToLocation { get; set; }
+
+        public double? Longitude { get; set; }
+        public double? Latitude { get; set; }
     }
 }
