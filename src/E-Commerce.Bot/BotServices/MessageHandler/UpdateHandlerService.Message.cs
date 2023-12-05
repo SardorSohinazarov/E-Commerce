@@ -1,4 +1,7 @@
 ﻿using E_Commerce.Bot.BotServices.MessageSender;
+using E_Commerce.Domain.Entities;
+using E_Commerce.Domain.Enums;
+using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -38,6 +41,49 @@ namespace E_Commerce.Bot.BotServices
                 Console.WriteLine(ex.Message.ToString());
             }
         }
+
+        private async Task HandleLocationAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var from = update.Message.From;
+            var location = update.Message.Location;
+
+            var client = await _clientService.GetClientAsync(from.Id);
+            if (client == null)
+                throw new Exception("Client not found");
+
+            var branch = await NearFilialLocationAsync(location.Latitude, location.Longitude);
+
+            if (client.Status == Status.Delivery)
+            {
+                client = await _clientService.UpdateClientUserStatusAsync(from.Id, Status.DeliveryCategory);
+            }
+            else if (client.Status == Status.PickUp)
+            {
+                client = await _clientService.UpdateClientUserStatusAsync(from.Id, Status.PickUpCategory);
+
+                await SendMessage.ForBranchState(botClient, update, cancellationToken, branch);
+            }
+
+            //davomi bo'lishi mumkin
+        }
+
+        private async ValueTask<Branch> NearFilialLocationAsync(double lat, double lon)
+        {
+            var branches = await _branchService.GetBranchesAsync();
+            double min = double.MaxValue;
+
+            Branch branch = new Branch();
+            for (int i = 0; i < branches.Count; i++)
+            {
+                if (Math.Sqrt(Math.Pow((double)(branches[i].Latitude - lat), 2) + Math.Pow((double)(branches[i].Longitude - lon), 2)) < min)
+                {
+                    branch = branches[i];
+                    min = Math.Sqrt(Math.Pow((double)(branches[i].Latitude - lat), 2) + Math.Pow((double)(branches[i].Longitude - lon), 2));
+                }
+            }
+            return branch;
+        }
+
 
         private async Task HandleContactAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
@@ -110,11 +156,6 @@ namespace E_Commerce.Bot.BotServices
         }
 
         private Task HandleAudioAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task HandleLocationAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

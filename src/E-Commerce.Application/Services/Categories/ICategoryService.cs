@@ -2,7 +2,7 @@
 
 namespace E_Commerce.Application.Services.Categories
 {
-    internal interface ICategoryService
+    public interface ICategoryService
     {
         ValueTask<List<Category>> GetAllCategoriesAsync();
         ValueTask<Category> GetCategoryByNameAsync(string name);

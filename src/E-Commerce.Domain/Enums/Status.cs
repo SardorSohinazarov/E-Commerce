@@ -17,6 +17,8 @@
         Feedback,
         //Order,
         Delivery,
-        PickUp
+            DeliveryCategory,
+        PickUp,
+            PickUpCategory
     }
 }

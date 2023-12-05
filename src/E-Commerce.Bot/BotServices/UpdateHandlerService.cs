@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Application.Services.Branches;
+using E_Commerce.Application.Services.Categories;
 using E_Commerce.Application.Services.Clients;
 using E_Commerce.Application.Services.Feedbacks;
 using E_Commerce.Application.Services.Rates;
@@ -16,6 +17,7 @@ namespace E_Commerce.Bot.BotServices
         private IFeedbackService _feedbackService;
         private IRateService _rateService;
         private IBranchService _branchService;
+        private ICategoryService _categoryService;
 
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
@@ -27,6 +29,7 @@ namespace E_Commerce.Bot.BotServices
             _feedbackService = scope.ServiceProvider.GetService<IFeedbackService>();
             _rateService = scope.ServiceProvider.GetService<IRateService>();
             _branchService = scope.ServiceProvider.GetService<IBranchService>();
+            _categoryService = scope.ServiceProvider.GetService<ICategoryService>();
 
             var updateHandler = update.Type switch
             {

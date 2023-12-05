@@ -253,5 +253,22 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return message;
         }
+
+        internal static async ValueTask<Message> ForCategoryState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            List<string> categories)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Shu matnni o'zgartirib qo'yish kerak",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForCategoryState(categories),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
     }
 }

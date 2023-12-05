@@ -1,4 +1,5 @@
-﻿using Telegram.Bot.Types.ReplyMarkups;
+﻿using E_Commerce.Domain.Entities;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace E_Commerce.Bot.BotServices.MessageSender
 {
@@ -233,8 +234,8 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 keyboardButtons.Add(
                     new List<KeyboardButton>
                     {
-                        KeyboardButton.WithRequestLocation(filials[i]),
-                        KeyboardButton.WithRequestLocation(filials[i+1]),
+                        new KeyboardButton(filials[i]),
+                        new KeyboardButton(filials[i+1]),
                     });
             }
 
@@ -243,7 +244,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 keyboardButtons.Add(
                     new List<KeyboardButton>
                     {
-                        KeyboardButton.WithRequestLocation(filials[filialsCount - 1]),
+                        new KeyboardButton(filials[filialsCount - 1]),
                     });
             }
 
@@ -251,6 +252,43 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 {
                     new KeyboardButton("⬅️ Ortga")
                 });
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
+
+            return replyKeyboardMarkup;
+        }
+
+        public static async Task<IReplyMarkup?> ForCategoryState(List<string> categories)
+        {
+            var categoryCount = categories.Count;
+            var rowCount = categoryCount / 2;
+
+            var keyboardButtons = new List<List<KeyboardButton>>()
+            {
+                new List<KeyboardButton>
+                {
+                    new KeyboardButton("⬅️ Ortga"),
+                },
+            };
+
+            for (int i = 0; i < rowCount; i+=2)
+            {
+                keyboardButtons.Add(
+                   new List<KeyboardButton>
+                   {
+                        new KeyboardButton(categories[i]),
+                        new KeyboardButton(categories[i+1]),
+                   });
+            }
+
+            if (categoryCount % 2 == 1)
+            {
+                keyboardButtons.Add(
+                    new List<KeyboardButton>
+                    {
+                        new KeyboardButton(categories[categoryCount - 1]),
+                    });
+            }
 
             ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
 
