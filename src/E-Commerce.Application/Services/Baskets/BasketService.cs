@@ -11,9 +11,9 @@ namespace E_Commerce.Application.Services.Baskets
         public BasketService(IApplicationDbContext context)
             => _context = context;
 
-        public async ValueTask<Basket> GetBasketAsync(int userTelegramId)
+        public async ValueTask<Basket> GetBasketAsync(long userTelegramId)
         {
-            var basket = await _context.Baskets.FirstOrDefaultAsync(x => x.ClientTelegramId == userTelegramId);
+            var basket = await _context.Baskets.Include(x => x.Products).ThenInclude(x => x.Product).FirstOrDefaultAsync(x => x.ClientTelegramId == userTelegramId);
 
             if (basket == null)
                 throw new Exception("Basket not found");
@@ -21,9 +21,9 @@ namespace E_Commerce.Application.Services.Baskets
             return basket;
         }
 
-        public async ValueTask<Basket> UpdateBasketProductsAsync(Product product, int count, int userTelegramId)
+        public async ValueTask<Basket> UpdateBasketProductsAsync(Product product, int count, long userTelegramId)
         {
-            var basket = await _context.Baskets.FirstOrDefaultAsync(x => x.ClientTelegramId == userTelegramId);
+            var basket = await _context.Baskets.Include(x => x.Products).FirstOrDefaultAsync(x => x.ClientTelegramId == userTelegramId);
 
             if (basket == null)
                 throw new Exception("Basket not found");
@@ -47,7 +47,6 @@ namespace E_Commerce.Application.Services.Baskets
             if (basket == null)
                 throw new Exception("Basket not found");
 
-            basket.IsActive = false;
             var entry = _context.Baskets.Update(basket);
             await _context.SaveChangesAsync();
 
