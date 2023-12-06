@@ -160,10 +160,10 @@ namespace E_Commerce.Bot.BotServices
                 "ℹ️ Ma'lumot" => CommandForInformationRequest(botClient, update, cancellationToken),
                 "🚖 Yetkazib berish" => CommandForDeliveryState(botClient,update,cancellationToken),
                 "🏃 Olib ketish" => CommandForPickUpState(botClient, update, cancellationToken),
-                //refactor qilinmaganlari
-                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 "📥 Savat" => CommandForBasketRequest(botClient, update, cancellationToken),
                 "🚖 Buyurtuma berish" => CommandForMainCommand(botClient, update, cancellationToken),
+                //refactor qilinmaganlari
+                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 

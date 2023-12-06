@@ -298,7 +298,6 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             var message = await botClient.SendPhotoAsync(
                     chatId: update.Message.Chat.Id,
                     photo: new InputOnlineFile(product.ImagePath),
-                    //product.ImagePath,
                     caption: $"{product.Name}\n Narxi: {product.Price} so'm",
                     replyMarkup: await ReplyKeyboardMarkups.ForProductsCountState(),
                     parseMode: ParseMode.Markdown,
@@ -308,10 +307,14 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             return message;
         }
 
-        internal static async ValueTask<Message> ForBasketState(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, List<Tuple<int,Product>> productLists)
+        internal static async ValueTask<Message> ForBasketState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            List<Tuple<int,Product>> productLists)
         {
             await botClient.SendTextMessageAsync(
-                chatId: update.Message.Chat.Id,
+                    chatId: update.Message.Chat.Id,
                     text: "*«❌ Maxsulot nomi»* - savatdan o'chirish \r\n *«🔄 Tozalash»* - savatni butunlay bo'shatish",
                     parseMode: ParseMode.Markdown,
                     cancellationToken: cancellationToken
@@ -331,7 +334,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             text = text + $"\nJami: {jami} so'm";
 
             var message = await botClient.SendTextMessageAsync(
-                chatId: update.Message.Chat.Id,
+                    chatId: update.Message.Chat.Id,
                     text: text,
                     parseMode: ParseMode.Markdown,
                     replyMarkup: await ReplyKeyboardMarkups.ForBasketState(productLists),
@@ -341,7 +344,10 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             return message;
         }
 
-        internal static async ValueTask<Message> ForOrderedProductsState(ITelegramBotClient botClient, Telegram.Bot.Types.Update update, CancellationToken cancellationToken, Order order)
+        internal static async ValueTask<Message> ForOrderedProductsState(
+            ITelegramBotClient botClient,
+            Update update, 
+            CancellationToken cancellationToken, Order order)
         {
             string text = "🗒 Chek:\r\n\r\n";
 
@@ -357,7 +363,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             text = text + $"\nJami: {jami} so'm";
 
             var message = await botClient.SendTextMessageAsync(
-                chatId: update.Message.Chat.Id,
+                    chatId: update.Message.Chat.Id,
                     text: text,
                     parseMode: ParseMode.Markdown,
                     cancellationToken: cancellationToken

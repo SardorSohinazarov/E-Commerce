@@ -24,6 +24,7 @@ namespace E_Commerce.Bot.BotServices
         private IProductService _productService;
         private IBasketService _basketService;
         private IOrderService _orderService;
+
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
 

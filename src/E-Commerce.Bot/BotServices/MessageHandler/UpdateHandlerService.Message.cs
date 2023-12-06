@@ -62,10 +62,10 @@ namespace E_Commerce.Bot.BotServices
 
                 await SendMessage.ForBranchState(botClient, update, cancellationToken, branch);
             }
-
-            //davomi bo'lishi mumkin
         }
 
+
+        //Eng yaqin filialni topish uchun
         private async ValueTask<Branch> NearFilialLocationAsync(double lat, double lon)
         {
             var branches = await _branchService.GetBranchesAsync();
@@ -88,10 +88,7 @@ namespace E_Commerce.Bot.BotServices
         {
             var from = update.Message.From;
             var contact = update.Message.Contact;
-
             var client = await _clientService.UpdateClientPhoneNumberAsync(from.Id, contact.PhoneNumber);
-
-            Console.WriteLine($"Telefon no'mer keldiyu {update.Message.Contact.PhoneNumber}");
 
             await SendMessage.ForMainState(botClient, update, cancellationToken);
         }
