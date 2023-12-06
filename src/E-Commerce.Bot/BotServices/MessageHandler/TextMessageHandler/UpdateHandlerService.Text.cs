@@ -109,6 +109,17 @@ namespace E_Commerce.Bot.BotServices
                     return;
                 }
             }
+            else if (state == Status.PickUpCategory)
+            {
+                var categoryNames = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name);
+                if (categoryNames.Contains(textMessage))
+                {
+                    var products = (await _productService.GetProductsAsync()).Select(x => x.Name).ToList();
+                    await SendMessage.ForProductsState(botClient, update, cancellationToken, products);
+                    await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpProducts);
+                    return;
+                }
+            }
             #endregion
 
             var texthandler = textMessage switch
@@ -168,6 +179,14 @@ namespace E_Commerce.Bot.BotServices
                 var filialNames = (await _branchService.GetBranchesAsync()).Select(x => x.Name).ToList();
                 message = await SendMessage.ForPickUpState(botClient, update, cancellationToken, filialNames);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUp);
+
+                return message;
+            }
+            else if (status == Status.PickUpProducts)
+            {
+                var categoryNames = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name).ToList();
+                message = await SendMessage.ForCategoryState(botClient, update, cancellationToken, categoryNames);
+                await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpCategory);
 
                 return message;
             }

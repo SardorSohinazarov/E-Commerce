@@ -18,7 +18,9 @@
         //Order,
         Delivery,
             DeliveryCategory,
+                DeliveryProducts,
         PickUp,
-            PickUpCategory
+            PickUpCategory,
+                PickUpProducts
     }
 }

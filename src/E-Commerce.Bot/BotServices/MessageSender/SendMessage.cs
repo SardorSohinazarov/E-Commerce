@@ -262,9 +262,26 @@ namespace E_Commerce.Bot.BotServices.MessageSender
         {
             var message = await botClient.SendTextMessageAsync(
                     chatId: update.Message.Chat.Id,
-                    text: "Shu matnni o'zgartirib qo'yish kerak",
+                    text: "Categories",
                     parseMode: ParseMode.Html,
                     replyMarkup: await ReplyKeyboardMarkups.ForCategoryState(categories),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> ForProductsState(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            List<string> products)
+        {
+            var message = await botClient.SendTextMessageAsync(
+                    chatId: update.Message.Chat.Id,
+                    text: "Products",
+                    parseMode: ParseMode.Html,
+                    replyMarkup: await ReplyKeyboardMarkups.ForProductsState(products),
                     cancellationToken: cancellationToken
                 );
 

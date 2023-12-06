@@ -2,6 +2,7 @@
 using E_Commerce.Application.Services.Categories;
 using E_Commerce.Application.Services.Clients;
 using E_Commerce.Application.Services.Feedbacks;
+using E_Commerce.Application.Services.Products;
 using E_Commerce.Application.Services.Rates;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
@@ -18,6 +19,7 @@ namespace E_Commerce.Bot.BotServices
         private IRateService _rateService;
         private IBranchService _branchService;
         private ICategoryService _categoryService;
+        private IProductService _productService;
 
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
@@ -30,6 +32,7 @@ namespace E_Commerce.Bot.BotServices
             _rateService = scope.ServiceProvider.GetService<IRateService>();
             _branchService = scope.ServiceProvider.GetService<IBranchService>();
             _categoryService = scope.ServiceProvider.GetService<ICategoryService>();
+            _productService = scope.ServiceProvider.GetService<IProductService>();
 
             var updateHandler = update.Type switch
             {

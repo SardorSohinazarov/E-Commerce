@@ -294,5 +294,42 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+
+        public static async Task<IReplyMarkup?> ForProductsState(List<string> products)
+        {
+            var productsCount = products.Count;
+            var rowCount = productsCount / 2;
+
+            var keyboardButtons = new List<List<KeyboardButton>>()
+            {
+                new List<KeyboardButton>
+                {
+                    new KeyboardButton("⬅️ Ortga"),
+                },
+            };
+
+            for (int i = 0; i < rowCount; i += 2)
+            {
+                keyboardButtons.Add(
+                   new List<KeyboardButton>
+                   {
+                        new KeyboardButton(products[i]),
+                        new KeyboardButton(products[i+1]),
+                   });
+            }
+
+            if (productsCount % 2 == 1)
+            {
+                keyboardButtons.Add(
+                    new List<KeyboardButton>
+                    {
+                        new KeyboardButton(products[productsCount - 1]),
+                    });
+            }
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardButtons);
+
+            return replyKeyboardMarkup;
+        }
     }
 }
