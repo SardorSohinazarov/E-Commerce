@@ -28,7 +28,7 @@ namespace E_Commerce.Application.Services.Products
             return products;
         }
         
-        public async ValueTask<List<string>> GetProductNamessAsync()
+        public async ValueTask<List<string>> GetProductNamesAsync()
         {
             var products = await _context.Products.Select(x => x.Name).ToListAsync();
 
