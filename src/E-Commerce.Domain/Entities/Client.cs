@@ -14,6 +14,8 @@ namespace E_Commerce.Domain.Entities
         public string? PhoneNumber { get; set; }
         public string? LanguageCode { get; set; }
 
+        public string? LastBasketProduct { get; set; }
+
         public Status Status { get; set; }
     }
 }
