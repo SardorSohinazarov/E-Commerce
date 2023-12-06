@@ -142,7 +142,32 @@ namespace E_Commerce.Bot.BotServices
                     ProductId = product.Id,
                 };
 
-                await _basketService.UpdateBasketProductsAsync(product, int.Parse(textMessage), from.Id);
+                var basket = await _basketService.GetBasketAsync(from.Id);
+                var products = basket.Products.Select(x => x.Product);
+                var productNames = products.Select(x => x.Name);
+
+                //yo'q bo'lsa qo'shadi endi
+                if(!productNames.Contains(storageUser.LastBasketProduct)) 
+                {
+                    await _basketService.UpdateBasketProductsAsync(product, int.Parse(textMessage), from.Id);
+                }
+
+                await _clientService.UpdateClientUserStatusesAsync(from.Id, "", Status.PickUpCategory);
+                var categories = await _categoryService.GetAllCategoryNamessAsync();
+                await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
+            }
+            else if (state == Status.Basket)
+            {
+                var productNames = (await _productService.GetProductNamesAsync());
+
+                foreach(var product in productNames)
+                {
+                    if("❌"+product == textMessage)
+                    {
+                        await _basketService.DeleteProductFromName(product, from.Id);
+                        return;
+                    }
+                }
             }
 
             #endregion
