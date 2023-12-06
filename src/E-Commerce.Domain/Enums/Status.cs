@@ -17,12 +17,12 @@
         Feedback,
         //Order,
         Delivery,
-            DeliveryCategory,
-                DeliveryProducts,
+        DeliveryCategory,
+        DeliveryProducts,
         PickUp,
-            PickUpCategory,
-                PickUpProducts,
-                    PickUpProductsCount,
+        PickUpCategory,
+        PickUpProducts,
+        PickUpProductsCount,
         Basket
     }
 }

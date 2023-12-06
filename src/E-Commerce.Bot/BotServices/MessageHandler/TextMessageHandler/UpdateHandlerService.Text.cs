@@ -104,7 +104,7 @@ namespace E_Commerce.Bot.BotServices
                 if (filialNames.Contains(textMessage))
                 {
                     var categories = await _categoryService.GetAllCategoryNamessAsync();
-                    await SendMessage.ForCategoryState(botClient, update, cancellationToken,categories);
+                    await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
                     await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpCategory);
                     return;
                 }
@@ -158,12 +158,12 @@ namespace E_Commerce.Bot.BotServices
                 "Raqamni o'zgartirish" => CommandForChangeNumberRequest(botClient, update, cancellationToken),
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
                 "ℹ️ Ma'lumot" => CommandForInformationRequest(botClient, update, cancellationToken),
-                "🚖 Yetkazib berish" => CommandForDeliveryState(botClient,update,cancellationToken),
+                "🚖 Yetkazib berish" => CommandForDeliveryState(botClient, update, cancellationToken),
                 "🏃 Olib ketish" => CommandForPickUpState(botClient, update, cancellationToken),
-                //refactor qilinmaganlari
-                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 "📥 Savat" => CommandForBasketRequest(botClient, update, cancellationToken),
                 "🚖 Buyurtuma berish" => CommandForMainCommand(botClient, update, cancellationToken),
+                //refactor qilinmaganlari
+                "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -198,7 +198,7 @@ namespace E_Commerce.Bot.BotServices
             var basket = await _basketService.GetBasketAsync(update.Message.From.Id);
             var productList = basket.Products.Select(x => new Tuple<int, Product>((int)x.Count, x.Product)).ToList();
             await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id, "", Status.Basket);
-            var message = await SendMessage.ForBasketState(botClient, update, cancellationToken,productList);
+            var message = await SendMessage.ForBasketState(botClient, update, cancellationToken, productList);
 
             return message;
         }
@@ -247,7 +247,7 @@ namespace E_Commerce.Bot.BotServices
             {
                 var products = await _productService.GetProductNamesAsync();
                 message = await SendMessage.ForProductsState(botClient, update, cancellationToken, products);
-                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id,"", Status.PickUpProducts);
+                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id, "", Status.PickUpProducts);
 
                 return message;
             }
@@ -255,7 +255,7 @@ namespace E_Commerce.Bot.BotServices
             {
                 var categories = await _categoryService.GetAllCategoryNamessAsync();
                 message = await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
-                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id,"", Status.PickUpCategory);
+                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id, "", Status.PickUpCategory);
 
                 return message;
             }

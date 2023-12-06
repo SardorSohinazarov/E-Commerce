@@ -2,10 +2,8 @@ using E_Commerce.Application;
 using E_Commerce.Bot.BackgroundServices;
 using E_Commerce.Bot.BotServices;
 using E_Commerce.Infrastructure;
-using Serilog;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
-using TelegramSink;
 
 var builder = WebApplication.CreateBuilder(args);
 
