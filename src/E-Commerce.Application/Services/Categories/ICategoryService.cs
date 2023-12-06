@@ -6,5 +6,6 @@ namespace E_Commerce.Application.Services.Categories
     {
         ValueTask<List<Category>> GetAllCategoriesAsync();
         ValueTask<Category> GetCategoryByNameAsync(string name);
+        ValueTask<List<string>> GetAllCategoryNamessAsync();
     }
 }
