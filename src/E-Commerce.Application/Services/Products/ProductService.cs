@@ -27,5 +27,12 @@ namespace E_Commerce.Application.Services.Products
 
             return products;
         }
+        
+        public async ValueTask<List<string>> GetProductNamesByCategoryAsync(string category)
+        {
+            var products = await _context.Products.Where(x => x.Category.Name == category).Select(x => x.Name).ToListAsync();
+
+            return products;
+        }
     }
 }

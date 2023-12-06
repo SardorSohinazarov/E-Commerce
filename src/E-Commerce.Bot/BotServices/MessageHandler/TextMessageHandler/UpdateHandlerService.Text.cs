@@ -114,7 +114,7 @@ namespace E_Commerce.Bot.BotServices
                 var categoryNames = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name);
                 if (categoryNames.Contains(textMessage))
                 {
-                    var products = (await _productService.GetProductsAsync()).Select(x => x.Name).ToList();
+                    var products = await _productService.GetProductNamesByCategoryAsync(textMessage);
                     await SendMessage.ForProductsState(botClient, update, cancellationToken, products);
                     await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpProducts);
                     return;

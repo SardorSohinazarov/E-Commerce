@@ -1,5 +1,4 @@
 ﻿using E_Commerce.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Application.Services.Products
 {
@@ -7,5 +6,6 @@ namespace E_Commerce.Application.Services.Products
     {
         public ValueTask<Product> GetByNameAsync(string name);
         public ValueTask<List<Product>> GetProductsAsync();
+        public ValueTask<List<string>> GetProductNamesByCategoryAsync(string category);
     }
 }

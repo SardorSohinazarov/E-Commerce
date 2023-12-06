@@ -4,6 +4,7 @@ using E_Commerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    partial class BotDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231206002436_Product-Seeding")]
+    partial class ProductSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,7 +79,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 952, DateTimeKind.Local).AddTicks(9514),
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 244, DateTimeKind.Local).AddTicks(9663),
                             Description = "Ajoyib filialimiz",
                             Latitude = 60.0,
                             Longitude = 50.0,
@@ -86,7 +88,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 952, DateTimeKind.Local).AddTicks(9551),
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 244, DateTimeKind.Local).AddTicks(9685),
                             Description = "Bu ham juda ajoyib filial",
                             Latitude = 61.0,
                             Longitude = 56.0,
@@ -304,7 +306,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1405),
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 245, DateTimeKind.Local).AddTicks(894),
                             Description = "Qimmat choy",
                             ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\turkiya-choyi.jpg",
                             Name = "Turkiya choylari",
@@ -314,7 +316,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1414),
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 245, DateTimeKind.Local).AddTicks(901),
                             Description = "O'rta narxdagi choy",
                             ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\china-tea.jpg",
                             Name = "Xitoy choylari",
@@ -324,7 +326,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1416),
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 245, DateTimeKind.Local).AddTicks(902),
                             Description = "Arzon choy",
                             ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\Indian-tea.jpg",
                             Name = "Hindiston choylari",
@@ -333,8 +335,8 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1418),
+                            CategoryId = 8,
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 245, DateTimeKind.Local).AddTicks(903),
                             Description = "Daxshat kabob",
                             ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\tovuq-kabob.jpg",
                             Name = "Tovuqli kabob",
@@ -343,8 +345,8 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1420),
+                            CategoryId = 8,
+                            CreatedDate = new DateTime(2023, 12, 6, 5, 24, 36, 245, DateTimeKind.Local).AddTicks(905),
                             Description = "Ajoyib kabob",
                             ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\go'shtli-kabob.jpg",
                             Name = "Go'shtli kabob",

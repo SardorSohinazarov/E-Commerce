@@ -229,7 +229,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             var rowCount = filialsCount / 2;
 
-            for (int i = 0; i < rowCount; i=+2)
+            for (int i = 0; i < filialsCount; i=+2)
             {
                 keyboardButtons.Add(
                     new List<KeyboardButton>
@@ -271,7 +271,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 },
             };
 
-            for (int i = 0; i < rowCount; i+=2)
+            for (int i = 0; i < categoryCount; i+=2)
             {
                 keyboardButtons.Add(
                    new List<KeyboardButton>
