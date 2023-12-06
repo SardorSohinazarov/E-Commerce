@@ -1,7 +1,9 @@
 ﻿using E_Commerce.Domain.Entities;
+using Microsoft.AspNetCore.Components.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
 namespace E_Commerce.Bot.BotServices.MessageSender
 {
@@ -282,6 +284,24 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     text: "Products",
                     parseMode: ParseMode.Html,
                     replyMarkup: await ReplyKeyboardMarkups.ForProductsState(products),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> ForProductOptions(
+            ITelegramBotClient botClient,
+            Update update,
+            CancellationToken cancellationToken,
+            Product product)
+        {
+            var message = await botClient.SendPhotoAsync(
+                    chatId: update.Message.Chat.Id,
+                    photo: new InputOnlineFile(product.ImagePath),
+                    //product.ImagePath,
+                    caption: $"{product.Name}\n ```Prise:{product.Price}``` \n{product.Description}",
+                    parseMode: ParseMode.Markdown,
                     cancellationToken: cancellationToken
                 );
 

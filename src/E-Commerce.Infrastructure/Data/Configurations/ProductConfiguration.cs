@@ -21,7 +21,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Qimmat choy",
                     Name = "Turkiya choylari",
                     CategoryId = 1,
-                    ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\turkiya-choyi.jpg",
+                    ImagePath = "https://idsb.tmgrup.com.tr/ly/uploads/images/2022/05/15/205578.jpg",
                     Price = 20000
                 },
                 new Product()
@@ -30,7 +30,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "O'rta narxdagi choy",
                     Name = "Xitoy choylari",
                     CategoryId = 1,
-                    ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\china-tea.jpg",
+                    ImagePath = "https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/Tea.jpg",
                     Price = 10000
                 },
                 new Product()
@@ -39,7 +39,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Arzon choy",
                     Name = "Hindiston choylari",
                     CategoryId = 1,
-                    ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\Indian-tea.jpg",
+                    ImagePath = "https://realfood.tesco.com/media/images/178-Chaispicedtea-H-efb63a82-e983-4d3c-9e3d-cb799a6f0418-0-472x310.jpg",
                     Price = 5000
                 },
 
@@ -50,7 +50,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Daxshat kabob",
                     Name = "Tovuqli kabob",
                     CategoryId = 2,
-                    ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\tovuq-kabob.jpg",
+                    ImagePath = "https://1.bp.blogspot.com/-xRoG8l4BZK8/XfasALaj1QI/AAAAAAAAPVI/RImASf05UKAvC7uwZsXsl9vERmS2W7zCwCNcBGAsYHQ/s1600/Chicken%2BKabob.JPG",
                     Price = 13000
                 },
                 new Product()
@@ -59,7 +59,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Ajoyib kabob",
                     Name = "Go'shtli kabob",
                     CategoryId = 2,
-                    ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\go'shtli-kabob.jpg",
+                    ImagePath = "https://foodiesterminal.com/wp-content/uploads/2019/11/chicken-angara-kabab-2-679x1024.jpg",
                     Price = 2
                 },
             });

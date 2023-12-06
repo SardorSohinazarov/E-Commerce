@@ -120,6 +120,16 @@ namespace E_Commerce.Bot.BotServices
                     return;
                 }
             }
+            else if (state == Status.PickUpProducts)
+            {
+                var productNames = (await _productService.GetProductNamessAsync());
+                if (productNames.Contains(textMessage))
+                {
+                    var product = await _productService.GetByNameAsync(textMessage);
+                    await SendMessage.ForProductOptions(botClient, update, cancellationToken, product);
+                    return;
+                }
+            }
             #endregion
 
             var texthandler = textMessage switch
