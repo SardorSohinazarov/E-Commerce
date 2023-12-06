@@ -10,6 +10,7 @@ namespace E_Commerce.Application.Services.Clients
         ValueTask<Client> UpdateClientNameAsync(long telegramId, string name);
         ValueTask<Client> UpdateClientLanguageCodeAsync(long telegramId, string languageCode);
         ValueTask<Client> UpdateClientUserStatusAsync(long telegramId, Status status);
+        ValueTask<Client> UpdateClientUserStatusesAsync(long telegramId,string lastBasketProduct, Status status);
         ValueTask<bool> DeleteClientAsync(long id);
         ValueTask<Client> GetClientAsync(long id);
     }

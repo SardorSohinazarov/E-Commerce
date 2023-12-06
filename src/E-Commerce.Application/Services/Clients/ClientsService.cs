@@ -19,6 +19,14 @@ namespace E_Commerce.Application.Services.Clients
             if (storageClient == null)
             {
                 var entry = await _context.Clients.AddAsync(client);
+
+                var basket = new Basket()
+                {
+                    ClientTelegramId = client.TelegramId,
+                };
+
+                var basketEnry = await _context.Baskets.AddAsync(basket);
+
                 await _context.SaveChangesAsync();
                 return entry.Entity;
             }
@@ -121,6 +129,25 @@ namespace E_Commerce.Application.Services.Clients
             else
             {
                 storageUser.Status = status;
+                var entry = _context.Clients.Update(storageUser);
+                await _context.SaveChangesAsync();
+
+                return entry.Entity;
+            }
+        }
+
+        public async ValueTask<Client> UpdateClientUserStatusesAsync(long telegramId, string lastBasketProduct, Status status)
+        {
+            var storageUser = await _context.Clients.FirstOrDefaultAsync(x => x.TelegramId == telegramId);
+
+            if (storageUser == null)
+            {
+                return storageUser;
+            }
+            else
+            {
+                storageUser.Status = status;
+                storageUser.LastBasketProduct = lastBasketProduct;
                 var entry = _context.Clients.Update(storageUser);
                 await _context.SaveChangesAsync();
 
