@@ -1,7 +1,6 @@
 ﻿using E_Commerce.Bot.BotServices.MessageSender;
 using E_Commerce.Domain.Entities;
 using E_Commerce.Domain.Enums;
-using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;

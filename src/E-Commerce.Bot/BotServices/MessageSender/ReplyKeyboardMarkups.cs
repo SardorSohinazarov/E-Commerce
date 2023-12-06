@@ -331,5 +331,63 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             return replyKeyboardMarkup;
         }
+
+        internal static async Task<IReplyMarkup?> ForProductsCountState()
+        {
+            List<List<KeyboardButton>> keyboards = new List<List<KeyboardButton>>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                List<KeyboardButton> keyboardsRow = new List<KeyboardButton>();
+                for(int j = 1; j <= 3; j++)
+                {
+                    keyboardsRow.Add(
+                        new KeyboardButton($"{(i-1) * 3 + j}"));
+                }
+                keyboards.Add(keyboardsRow);
+            }
+
+            keyboards.Add(
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("📥 Savat"),
+                    new KeyboardButton("⬅️ Ortga"),
+                });
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboards);
+
+            return replyKeyboardMarkup;
+        }
+
+        internal static async Task<IReplyMarkup?> ForBasketState(List<Tuple<int, Product>> productLists)
+        {
+            List<List<KeyboardButton>> keyboards = new List<List<KeyboardButton>>();
+
+            foreach(var product in productLists)
+            {
+                keyboards.Add(
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("❌" + product.Item2.Name),
+                });
+            }
+
+            keyboards.Add(
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("⬅️ Ortga"),
+                    new KeyboardButton("🔄 Tozalash"),
+                });
+            
+            keyboards.Add(
+                new List<KeyboardButton>()
+                {
+                    new KeyboardButton("🚖 Buyurtuma berish"),
+                });
+
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboards);
+
+            return replyKeyboardMarkup;
+        }
     }
 }

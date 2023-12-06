@@ -1,5 +1,4 @@
 ﻿using E_Commerce.Domain.Entities;
-using Microsoft.AspNetCore.Components.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -300,7 +299,66 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     chatId: update.Message.Chat.Id,
                     photo: new InputOnlineFile(product.ImagePath),
                     //product.ImagePath,
-                    caption: $"{product.Name}\n ```Prise:{product.Price}``` \n{product.Description}",
+                    caption: $"{product.Name}\n Narxi: {product.Price} so'm",
+                    replyMarkup: await ReplyKeyboardMarkups.ForProductsCountState(),
+                    parseMode: ParseMode.Markdown,
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> ForBasketState(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, List<Tuple<int,Product>> productLists)
+        {
+            await botClient.SendTextMessageAsync(
+                chatId: update.Message.Chat.Id,
+                    text: "*«❌ Maxsulot nomi»* - savatdan o'chirish \r\n *«🔄 Tozalash»* - savatni butunlay bo'shatish",
+                    parseMode: ParseMode.Markdown,
+                    cancellationToken: cancellationToken
+                );
+
+            string text = "📥 Savat:\r\n\r\n";
+
+            decimal jami = 0;
+            foreach( var item in productLists )
+            {
+                var summa = item.Item2.Price * item.Item1;
+                text = text + item.Item2.Name + "\n";
+                text = text + $"{item.Item2.Price} x {item.Item1} = {summa}\n\n";
+                jami = jami + summa;
+            }
+
+            text = text + $"\nJami: {jami} so'm";
+
+            var message = await botClient.SendTextMessageAsync(
+                chatId: update.Message.Chat.Id,
+                    text: text,
+                    parseMode: ParseMode.Markdown,
+                    replyMarkup: await ReplyKeyboardMarkups.ForBasketState(productLists),
+                    cancellationToken: cancellationToken
+                );
+
+            return message;
+        }
+
+        internal static async ValueTask<Message> ForOrderedProductsState(ITelegramBotClient botClient, Telegram.Bot.Types.Update update, CancellationToken cancellationToken, Order order)
+        {
+            string text = "🗒 Chek:\r\n\r\n";
+
+            decimal jami = 0;
+            foreach (var product in order.ProductList)
+            {
+                var summa = product.Product.Price * product.Count;
+                text = text + product.Product.Name + "\n";
+                text = text + $"{product.Product.Price} x {product.Count} = {summa}\n\n";
+                jami = jami + (decimal)summa;
+            }
+
+            text = text + $"\nJami: {jami} so'm";
+
+            var message = await botClient.SendTextMessageAsync(
+                chatId: update.Message.Chat.Id,
+                    text: text,
                     parseMode: ParseMode.Markdown,
                     cancellationToken: cancellationToken
                 );

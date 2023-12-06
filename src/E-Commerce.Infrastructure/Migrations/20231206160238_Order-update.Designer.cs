@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    [Migration("20231206004013_Product-Seeding-2")]
-    partial class ProductSeeding2
+    [Migration("20231206160238_Order-update")]
+    partial class Orderupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,9 +37,6 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -79,7 +76,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 952, DateTimeKind.Local).AddTicks(9514),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(2729),
                             Description = "Ajoyib filialimiz",
                             Latitude = 60.0,
                             Longitude = 50.0,
@@ -88,7 +85,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 952, DateTimeKind.Local).AddTicks(9551),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(2746),
                             Description = "Bu ham juda ajoyib filial",
                             Latitude = 61.0,
                             Longitude = 56.0,
@@ -193,6 +190,9 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.Property<string>("LanguageCode")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LastBasketProduct")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -244,23 +244,8 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("BasketId")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("FromBranchId")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("Longitude")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -306,9 +291,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1405),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(3781),
                             Description = "Qimmat choy",
-                            ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\turkiya-choyi.jpg",
+                            ImagePath = "https://idsb.tmgrup.com.tr/ly/uploads/images/2022/05/15/205578.jpg",
                             Name = "Turkiya choylari",
                             Price = 20000m
                         },
@@ -316,9 +301,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1414),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(3789),
                             Description = "O'rta narxdagi choy",
-                            ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\china-tea.jpg",
+                            ImagePath = "https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/Tea.jpg",
                             Name = "Xitoy choylari",
                             Price = 10000m
                         },
@@ -326,9 +311,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1416),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(3790),
                             Description = "Arzon choy",
-                            ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\Indian-tea.jpg",
+                            ImagePath = "https://realfood.tesco.com/media/images/178-Chaispicedtea-H-efb63a82-e983-4d3c-9e3d-cb799a6f0418-0-472x310.jpg",
                             Name = "Hindiston choylari",
                             Price = 5000m
                         },
@@ -336,9 +321,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1418),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(3791),
                             Description = "Daxshat kabob",
-                            ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\tovuq-kabob.jpg",
+                            ImagePath = "https://1.bp.blogspot.com/-xRoG8l4BZK8/XfasALaj1QI/AAAAAAAAPVI/RImASf05UKAvC7uwZsXsl9vERmS2W7zCwCNcBGAsYHQ/s1600/Chicken%2BKabob.JPG",
                             Name = "Tovuqli kabob",
                             Price = 13000m
                         },
@@ -346,9 +331,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 5, 40, 12, 953, DateTimeKind.Local).AddTicks(1420),
+                            CreatedDate = new DateTime(2023, 12, 6, 21, 2, 37, 897, DateTimeKind.Local).AddTicks(3792),
                             Description = "Ajoyib kabob",
-                            ImagePath = "D:\\Projects\\E-Commerce\\src\\E-Commerce.Bot\\wwwroot\\products\\go'shtli-kabob.jpg",
+                            ImagePath = "https://foodiesterminal.com/wp-content/uploads/2019/11/chicken-angara-kabab-2-679x1024.jpg",
                             Name = "Go'shtli kabob",
                             Price = 2m
                         });
@@ -368,6 +353,9 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.Property<int?>("Count")
                         .HasColumnType("int");
 
+                    b.Property<long?>("OrderId")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -377,6 +365,10 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BasketId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductLists");
                 });
@@ -419,6 +411,18 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.HasOne("E_Commerce.Domain.Entities.Basket", null)
                         .WithMany("Products")
                         .HasForeignKey("BasketId");
+
+                    b.HasOne("E_Commerce.Domain.Entities.Order", null)
+                        .WithMany("ProductList")
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("E_Commerce.Domain.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Basket", b =>
@@ -429,6 +433,11 @@ namespace E_Commerce.Infrastructure.Migrations
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("E_Commerce.Domain.Entities.Order", b =>
+                {
+                    b.Navigation("ProductList");
                 });
 #pragma warning restore 612, 618
         }

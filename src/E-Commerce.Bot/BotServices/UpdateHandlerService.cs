@@ -1,7 +1,9 @@
-﻿using E_Commerce.Application.Services.Branches;
+﻿using E_Commerce.Application.Services.Baskets;
+using E_Commerce.Application.Services.Branches;
 using E_Commerce.Application.Services.Categories;
 using E_Commerce.Application.Services.Clients;
 using E_Commerce.Application.Services.Feedbacks;
+using E_Commerce.Application.Services.Orders;
 using E_Commerce.Application.Services.Products;
 using E_Commerce.Application.Services.Rates;
 using Telegram.Bot;
@@ -20,7 +22,8 @@ namespace E_Commerce.Bot.BotServices
         private IBranchService _branchService;
         private ICategoryService _categoryService;
         private IProductService _productService;
-
+        private IBasketService _basketService;
+        private IOrderService _orderService;
         public UpdateHandlerService(IServiceScopeFactory scopeFactory)
             => _scopeFactory = scopeFactory;
 
@@ -33,6 +36,8 @@ namespace E_Commerce.Bot.BotServices
             _branchService = scope.ServiceProvider.GetService<IBranchService>();
             _categoryService = scope.ServiceProvider.GetService<ICategoryService>();
             _productService = scope.ServiceProvider.GetService<IProductService>();
+            _basketService = scope.ServiceProvider.GetService<IBasketService>();
+            _orderService = scope.ServiceProvider.GetService<IOrderService>();
 
             var updateHandler = update.Type switch
             {

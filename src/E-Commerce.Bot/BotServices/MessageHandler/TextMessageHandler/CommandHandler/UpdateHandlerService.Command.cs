@@ -109,9 +109,9 @@ namespace E_Commerce.Bot.BotServices
                 Username = from.Username,
             };
 
-            var entry = await _clientService.AddAsync(client);
+            var clientEntry = await _clientService.AddAsync(client);
 
-            return entry;
+            return clientEntry;
         }
     }
 }

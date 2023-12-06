@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    [Migration("20231206011801_Product-Seeding-3")]
-    partial class ProductSeeding3
+    [Migration("20231206143006_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,9 +37,6 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -79,7 +76,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(5161),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(5128),
                             Description = "Ajoyib filialimiz",
                             Latitude = 60.0,
                             Longitude = 50.0,
@@ -88,7 +85,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(5190),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(5159),
                             Description = "Bu ham juda ajoyib filial",
                             Latitude = 61.0,
                             Longitude = 56.0,
@@ -191,6 +188,9 @@ namespace E_Commerce.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastBasketProduct")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -306,7 +306,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(6544),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(7432),
                             Description = "Qimmat choy",
                             ImagePath = "https://idsb.tmgrup.com.tr/ly/uploads/images/2022/05/15/205578.jpg",
                             Name = "Turkiya choylari",
@@ -316,7 +316,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(6552),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(7442),
                             Description = "O'rta narxdagi choy",
                             ImagePath = "https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/Tea.jpg",
                             Name = "Xitoy choylari",
@@ -326,7 +326,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(6554),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(7445),
                             Description = "Arzon choy",
                             ImagePath = "https://realfood.tesco.com/media/images/178-Chaispicedtea-H-efb63a82-e983-4d3c-9e3d-cb799a6f0418-0-472x310.jpg",
                             Name = "Hindiston choylari",
@@ -336,7 +336,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(6556),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(7446),
                             Description = "Daxshat kabob",
                             ImagePath = "https://1.bp.blogspot.com/-xRoG8l4BZK8/XfasALaj1QI/AAAAAAAAPVI/RImASf05UKAvC7uwZsXsl9vERmS2W7zCwCNcBGAsYHQ/s1600/Chicken%2BKabob.JPG",
                             Name = "Tovuqli kabob",
@@ -346,7 +346,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 6, 6, 18, 1, 287, DateTimeKind.Local).AddTicks(6557),
+                            CreatedDate = new DateTime(2023, 12, 6, 19, 30, 6, 549, DateTimeKind.Local).AddTicks(7447),
                             Description = "Ajoyib kabob",
                             ImagePath = "https://foodiesterminal.com/wp-content/uploads/2019/11/chicken-angara-kabab-2-679x1024.jpg",
                             Name = "Go'shtli kabob",

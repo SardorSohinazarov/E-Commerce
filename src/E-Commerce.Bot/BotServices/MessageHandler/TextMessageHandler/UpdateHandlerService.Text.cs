@@ -103,7 +103,7 @@ namespace E_Commerce.Bot.BotServices
                 var filialNames = (await _branchService.GetBranchesAsync()).Select(x => x.Name);
                 if (filialNames.Contains(textMessage))
                 {
-                    var categories = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name).ToList();
+                    var categories = await _categoryService.GetAllCategoryNamessAsync();
                     await SendMessage.ForCategoryState(botClient, update, cancellationToken,categories);
                     await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpCategory);
                     return;
@@ -111,7 +111,7 @@ namespace E_Commerce.Bot.BotServices
             }
             else if (state == Status.PickUpCategory)
             {
-                var categoryNames = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name);
+                var categoryNames = await _categoryService.GetAllCategoryNamessAsync();
                 if (categoryNames.Contains(textMessage))
                 {
                     var products = await _productService.GetProductNamesByCategoryAsync(textMessage);
@@ -122,14 +122,29 @@ namespace E_Commerce.Bot.BotServices
             }
             else if (state == Status.PickUpProducts)
             {
-                var productNames = (await _productService.GetProductNamessAsync());
+                var productNames = (await _productService.GetProductNamesAsync());
                 if (productNames.Contains(textMessage))
                 {
                     var product = await _productService.GetByNameAsync(textMessage);
+                    await _clientService.UpdateClientUserStatusesAsync(from.Id, textMessage, Status.PickUpProductsCount);
                     await SendMessage.ForProductOptions(botClient, update, cancellationToken, product);
                     return;
                 }
             }
+            else if (state == Status.PickUpProductsCount && "123456789".Contains(textMessage))
+            {
+                var product = await _productService.GetByNameAsync(storageUser.LastBasketProduct);
+
+                ProductList productList = new ProductList()
+                {
+                    UserTelegramId = from.Id,
+                    Count = int.Parse(textMessage),
+                    ProductId = product.Id,
+                };
+
+                await _basketService.UpdateBasketProductsAsync(product, int.Parse(textMessage), from.Id);
+            }
+
             #endregion
 
             var texthandler = textMessage switch
@@ -144,9 +159,11 @@ namespace E_Commerce.Bot.BotServices
                 "🇺🇿 Tilni tanlang" => CommandForChangeLanguageRequest(botClient, update, cancellationToken),
                 "ℹ️ Ma'lumot" => CommandForInformationRequest(botClient, update, cancellationToken),
                 "🚖 Yetkazib berish" => CommandForDeliveryState(botClient,update,cancellationToken),
+                "🏃 Olib ketish" => CommandForPickUpState(botClient, update, cancellationToken),
                 //refactor qilinmaganlari
                 "🛍 Buyurtma berish" => SendMessage.ForOrdersState(botClient, update, cancellationToken),
-                "🏃 Olib ketish" => CommandForPickUpState(botClient, update, cancellationToken),
+                "📥 Savat" => CommandForBasketRequest(botClient, update, cancellationToken),
+                "🚖 Buyurtuma berish" => CommandForMainCommand(botClient, update, cancellationToken),
                 _ => throw new NotImplementedException()
             };
 
@@ -158,6 +175,32 @@ namespace E_Commerce.Bot.BotServices
             {
                 Console.WriteLine("Exception:" + ex.Message);
             }
+        }
+
+        private async ValueTask<Message> CommandForMainCommand(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var basket = await _basketService.GetBasketAsync(update.Message.From.Id);
+
+            var order = new Order()
+            {
+                ProductList = basket.Products
+            };
+
+            order = await _orderService.AddOrderAsync(order);
+
+            var message = await SendMessage.ForOrderedProductsState(botClient, update, cancellationToken, order);
+
+            return message;
+        }
+
+        private async ValueTask<Message> CommandForBasketRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            var basket = await _basketService.GetBasketAsync(update.Message.From.Id);
+            var productList = basket.Products.Select(x => new Tuple<int, Product>((int)x.Count, x.Product)).ToList();
+            await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id, "", Status.Basket);
+            var message = await SendMessage.ForBasketState(botClient, update, cancellationToken,productList);
+
+            return message;
         }
 
         private async ValueTask<Message> CommandForPreviousRequest(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken, Status status)
@@ -197,6 +240,22 @@ namespace E_Commerce.Bot.BotServices
                 var categoryNames = (await _categoryService.GetAllCategoriesAsync()).Select(x => x.Name).ToList();
                 message = await SendMessage.ForCategoryState(botClient, update, cancellationToken, categoryNames);
                 await _clientService.UpdateClientUserStatusAsync(update.Message.From.Id, Status.PickUpCategory);
+
+                return message;
+            }
+            else if (status == Status.PickUpProductsCount)
+            {
+                var products = await _productService.GetProductNamesAsync();
+                message = await SendMessage.ForProductsState(botClient, update, cancellationToken, products);
+                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id,"", Status.PickUpProducts);
+
+                return message;
+            }
+            else if (status == Status.Basket)
+            {
+                var categories = await _categoryService.GetAllCategoryNamessAsync();
+                message = await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
+                await _clientService.UpdateClientUserStatusesAsync(update.Message.From.Id,"", Status.PickUpCategory);
 
                 return message;
             }

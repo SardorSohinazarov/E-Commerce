@@ -21,6 +21,8 @@
                 DeliveryProducts,
         PickUp,
             PickUpCategory,
-                PickUpProducts
+                PickUpProducts,
+                    PickUpProductsCount,
+        Basket
     }
 }
