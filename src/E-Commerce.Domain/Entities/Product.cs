@@ -2,7 +2,7 @@
 
 namespace E_Commerce.Domain.Entities
 {
-    public class Product:Auditable
+    public class Product : Auditable
     {
         public int Id { get; set; }
         public string Name { get; set; }

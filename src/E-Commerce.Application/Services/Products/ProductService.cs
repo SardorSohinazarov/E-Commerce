@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Application.Services.Products
 {
-    public class ProductService:IProductService
+    public class ProductService : IProductService
     {
         private readonly IApplicationDbContext _context;
 
@@ -20,21 +20,21 @@ namespace E_Commerce.Application.Services.Products
 
             return product;
         }
-        
+
         public async ValueTask<List<Product>> GetProductsAsync()
         {
             var products = await _context.Products.ToListAsync();
 
             return products;
         }
-        
+
         public async ValueTask<List<string>> GetProductNamesAsync()
         {
             var products = await _context.Products.Select(x => x.Name).ToListAsync();
 
             return products;
         }
-        
+
         public async ValueTask<List<string>> GetProductNamesByCategoryAsync(string category)
         {
             var products = await _context.Products.Where(x => x.Category.Name == category).Select(x => x.Name).ToListAsync();

@@ -311,7 +311,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             ITelegramBotClient botClient,
             Update update,
             CancellationToken cancellationToken,
-            List<Tuple<int,Product>> productLists)
+            List<Tuple<int, Product>> productLists)
         {
             await botClient.SendTextMessageAsync(
                     chatId: update.Message.Chat.Id,
@@ -323,7 +323,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             string text = "📥 Savat:\r\n\r\n";
 
             decimal jami = 0;
-            foreach( var item in productLists )
+            foreach (var item in productLists)
             {
                 var summa = item.Item2.Price * item.Item1;
                 text = text + item.Item2.Name + "\n";
@@ -346,7 +346,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
         internal static async ValueTask<Message> ForOrderedProductsState(
             ITelegramBotClient botClient,
-            Update update, 
+            Update update,
             CancellationToken cancellationToken, Order order)
         {
             string text = "🗒 Chek:\r\n\r\n";

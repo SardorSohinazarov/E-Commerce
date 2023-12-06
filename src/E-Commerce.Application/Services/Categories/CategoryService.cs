@@ -17,7 +17,7 @@ namespace E_Commerce.Application.Services.Categories
 
             return categories;
         }
-        
+
         public async ValueTask<List<string>> GetAllCategoryNamessAsync()
         {
             var categories = await _context.Categories.Select(x => x.Name).ToListAsync();

@@ -203,7 +203,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 new List<KeyboardButton>
                 {
                     KeyboardButton.WithRequestLocation("Eng yaqin filialni aniqlash"),
-                }, 
+                },
                 new List<KeyboardButton>()
                 {
                     new KeyboardButton("⬅️ Ortga")
@@ -229,7 +229,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
 
             var rowCount = filialsCount / 2;
 
-            for (int i = 0; i < filialsCount; i=+2)
+            for (int i = 0; i < filialsCount; i = +2)
             {
                 keyboardButtons.Add(
                     new List<KeyboardButton>
@@ -239,7 +239,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     });
             }
 
-            if(filialsCount % 2 == 1) 
+            if (filialsCount % 2 == 1)
             {
                 keyboardButtons.Add(
                     new List<KeyboardButton>
@@ -271,7 +271,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                 },
             };
 
-            for (int i = 0; i < categoryCount; i+=2)
+            for (int i = 0; i < categoryCount; i += 2)
             {
                 keyboardButtons.Add(
                    new List<KeyboardButton>
@@ -339,10 +339,10 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             for (int i = 1; i <= 3; i++)
             {
                 List<KeyboardButton> keyboardsRow = new List<KeyboardButton>();
-                for(int j = 1; j <= 3; j++)
+                for (int j = 1; j <= 3; j++)
                 {
                     keyboardsRow.Add(
-                        new KeyboardButton($"{(i-1) * 3 + j}"));
+                        new KeyboardButton($"{(i - 1) * 3 + j}"));
                 }
                 keyboards.Add(keyboardsRow);
             }
@@ -363,7 +363,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
         {
             List<List<KeyboardButton>> keyboards = new List<List<KeyboardButton>>();
 
-            foreach(var product in productLists)
+            foreach (var product in productLists)
             {
                 keyboards.Add(
                 new List<KeyboardButton>()
@@ -378,7 +378,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
                     new KeyboardButton("⬅️ Ortga"),
                     new KeyboardButton("🔄 Tozalash"),
                 });
-            
+
             keyboards.Add(
                 new List<KeyboardButton>()
                 {

@@ -22,7 +22,7 @@ namespace E_Commerce.Application.Services.ProductLists
         public async ValueTask<ProductList> UpdateProductListAsync(int count, long userTelegramId)
         {
             var productList = await _context.ProductLists.FirstOrDefaultAsync(x => x.UserTelegramId == userTelegramId && x.Count == null);
-            
+
             if (productList == null)
                 throw new Exception("ProductList not found");
 
