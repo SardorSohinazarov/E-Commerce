@@ -13,7 +13,7 @@ namespace E_Commerce.Application.Services.Orders
         public async ValueTask<Order> AddOrderAsync(Order order)
         {
             var entry = await _context.Orders.AddAsync(order);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return entry.Entity;
         }
