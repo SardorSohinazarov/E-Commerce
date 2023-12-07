@@ -156,6 +156,13 @@ namespace E_Commerce.Bot.BotServices
                 var categories = await _categoryService.GetAllCategoryNamessAsync();
                 await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
             }
+            else if (state == Status.Basket && textMessage == "🔄 Tozalash")
+            {
+                 await _basketService.Clear(from.Id);
+                 await _clientService.UpdateClientUserStatusesAsync(from.Id, "", Status.PickUpCategory);
+                 var categories = await _categoryService.GetAllCategoryNamessAsync();
+                 await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
+            }
             else if (state == Status.Basket)
             {
                 var productNames = (await _productService.GetProductNamesAsync());
@@ -165,7 +172,9 @@ namespace E_Commerce.Bot.BotServices
                     if("❌"+product == textMessage)
                     {
                         await _basketService.DeleteProductFromName(product, from.Id);
-                        return;
+                        await _clientService.UpdateClientUserStatusesAsync(from.Id, "", Status.PickUpCategory);
+                        var categories = await _categoryService.GetAllCategoryNamessAsync();
+                        await SendMessage.ForCategoryState(botClient, update, cancellationToken, categories);
                     }
                 }
             }

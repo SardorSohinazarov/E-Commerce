@@ -11,6 +11,13 @@ namespace E_Commerce.Application.Services.Baskets
         public BasketService(IApplicationDbContext context)
             => _context = context;
 
+        public async ValueTask Clear(long id)
+        {
+            var basket = _context.Baskets.Include(x => x.Products).FirstOrDefault(x => x.ClientTelegramId == id);
+            basket.Products = null;
+            await _context.SaveChangesAsync();
+        }
+
         public async ValueTask DeleteProductFromName(string name, long id)
         {
             var basket = _context.Baskets.Include(x => x.Products).ThenInclude(x => x.Product).FirstOrDefault(x => x.ClientTelegramId == id);
