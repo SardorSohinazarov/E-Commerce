@@ -4,6 +4,7 @@ using E_Commerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(BotDbContext))]
-    partial class BotDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231207035843_Seeding-shorva-lagmon-osh")]
+    partial class Seedingshorvalagmonosh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +76,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(1322),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(2254),
                             Description = "Ajoyib filialimiz",
                             Latitude = 60.0,
                             Longitude = 50.0,
@@ -83,7 +85,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(1340),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(2299),
                             Description = "Bu ham juda ajoyib filial",
                             Latitude = 61.0,
                             Longitude = 56.0,
@@ -289,7 +291,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2353),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4609),
                             Description = "Qimmat choy",
                             ImagePath = "https://idsb.tmgrup.com.tr/ly/uploads/images/2022/05/15/205578.jpg",
                             Name = "Turkiya choylari",
@@ -299,7 +301,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2359),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4629),
                             Description = "O'rta narxdagi choy",
                             ImagePath = "https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/Tea.jpg",
                             Name = "Xitoy choylari",
@@ -309,7 +311,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2360),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4631),
                             Description = "Arzon choy",
                             ImagePath = "https://realfood.tesco.com/media/images/178-Chaispicedtea-H-efb63a82-e983-4d3c-9e3d-cb799a6f0418-0-472x310.jpg",
                             Name = "Hindiston choylari",
@@ -319,7 +321,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2361),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4632),
                             Description = "Daxshat kabob",
                             ImagePath = "https://1.bp.blogspot.com/-xRoG8l4BZK8/XfasALaj1QI/AAAAAAAAPVI/RImASf05UKAvC7uwZsXsl9vERmS2W7zCwCNcBGAsYHQ/s1600/Chicken%2BKabob.JPG",
                             Name = "Tovuqli kabob",
@@ -329,7 +331,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2362),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4633),
                             Description = "Ajoyib kabob",
                             ImagePath = "https://foodiesterminal.com/wp-content/uploads/2019/11/chicken-angara-kabab-2-679x1024.jpg",
                             Name = "Go'shtli kabob",
@@ -339,7 +341,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2364),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4636),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://api.online-bozor.uz/uploads/images/ff80818144829954794c12d7",
                             Name = "Qo'qon Patir",
@@ -349,17 +351,17 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 7,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2365),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4638),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://storage.kun.uz/source/1/ssEjJUu1uNZtl84wFUwb11XwDH3wT1l0.jpg",
                             Name = "Buxanka",
-                            Price = 2800m
+                            Price = 2m
                         },
                         new
                         {
                             Id = 8,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2366),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4639),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://i2.wp.com/attuale.ru/wp-content/uploads/2018/02/50270956-391b-4308-b21d-882911a30634_original.jpg",
                             Name = "Tovuq shorva",
@@ -369,7 +371,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 9,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2367),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4641),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://www.ferganatourism.uz/d/bd72b97a.jpg",
                             Name = "Noxat shorva",
@@ -379,7 +381,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 10,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2368),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4643),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
                             Name = "Qovurma lag'mon",
@@ -389,7 +391,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 11,
                             CategoryId = 6,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2369),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4644),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
                             Name = "Choyxona palov",
@@ -399,7 +401,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         {
                             Id = 12,
                             CategoryId = 6,
-                            CreatedDate = new DateTime(2023, 12, 7, 9, 2, 35, 110, DateTimeKind.Local).AddTicks(2370),
+                            CreatedDate = new DateTime(2023, 12, 7, 8, 58, 43, 41, DateTimeKind.Local).AddTicks(4645),
                             Description = "Juda shirin va mazali",
                             ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
                             Name = "To'y oshi",

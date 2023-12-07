@@ -63,8 +63,8 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Price = 15000
                 },
 
-                //non
 
+                //non
                  new Product()
                 {
                     Id = 6,
@@ -81,7 +81,58 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Name = "Buxanka",
                     CategoryId = 3,
                     ImagePath = "https://storage.kun.uz/source/1/ssEjJUu1uNZtl84wFUwb11XwDH3wT1l0.jpg",
-                    Price = 2
+                    Price = 2800
+                },
+
+                //shorva
+                 new Product()
+                {
+                    Id = 8,
+                    Description = "Juda shirin va mazali",
+                    Name = "Tovuq shorva",
+                    CategoryId = 4,
+                    ImagePath = "https://i2.wp.com/attuale.ru/wp-content/uploads/2018/02/50270956-391b-4308-b21d-882911a30634_original.jpg",
+                    Price = 18000
+                },
+                new Product()
+                {
+                    Id = 9,
+                    Description = "Juda shirin va mazali",
+                    Name = "Noxat shorva",
+                    CategoryId = 4,
+                    ImagePath = "https://www.ferganatourism.uz/d/bd72b97a.jpg",
+                    Price = 16000
+                },
+                
+                //lag'mon
+                new Product()
+                {
+                    Id = 10,
+                    Description = "Juda shirin va mazali",
+                    Name = "Qovurma lag'mon",
+                    CategoryId = 5,
+                    ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
+                    Price = 14000
+                },
+
+                //osh
+                new Product()
+                {
+                    Id = 11,
+                    Description = "Juda shirin va mazali",
+                    Name = "Choyxona palov",
+                    CategoryId = 6,
+                    ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
+                    Price = 25000
+                },
+                new Product()
+                {
+                    Id = 12,
+                    Description = "Juda shirin va mazali",
+                    Name = "To'y oshi",
+                    CategoryId = 6,
+                    ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
+                    Price = 25000
                 },
             });
         }
