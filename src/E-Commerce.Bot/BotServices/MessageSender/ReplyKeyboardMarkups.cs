@@ -267,6 +267,7 @@ namespace E_Commerce.Bot.BotServices.MessageSender
             {
                 new List<KeyboardButton>
                 {
+                    new KeyboardButton("📥 Savat"),
                     new KeyboardButton("⬅️ Ortga"),
                 },
             };

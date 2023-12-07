@@ -122,7 +122,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Juda shirin va mazali",
                     Name = "Choyxona palov",
                     CategoryId = 6,
-                    ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
+                    ImagePath = "https://choyxonachi.uz/wp-content/uploads/2020/06/ab-5.jpg",
                     Price = 25000
                 },
                 new Product()
@@ -131,7 +131,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Description = "Juda shirin va mazali",
                     Name = "To'y oshi",
                     CategoryId = 6,
-                    ImagePath = "https://pazanda.com/wp-content/uploads/2017/02/img_4051.jpg",
+                    ImagePath = "https://pbs.twimg.com/media/El1uVoZXYAAXXGE.jpg",
                     Price = 25000
                 },
             });
