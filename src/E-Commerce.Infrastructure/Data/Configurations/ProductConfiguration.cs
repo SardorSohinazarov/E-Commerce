@@ -43,7 +43,7 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Price = 5000
                 },
 
-
+                //kabob
                  new Product()
                 {
                     Id = 4,
@@ -60,6 +60,27 @@ namespace E_Commerce.Infrastructure.Data.Configurations
                     Name = "Go'shtli kabob",
                     CategoryId = 2,
                     ImagePath = "https://foodiesterminal.com/wp-content/uploads/2019/11/chicken-angara-kabab-2-679x1024.jpg",
+                    Price = 15000
+                },
+
+                //non
+
+                 new Product()
+                {
+                    Id = 6,
+                    Description = "Juda shirin va mazali",
+                    Name = "Qo'qon Patir",
+                    CategoryId = 3,
+                    ImagePath = "https://api.online-bozor.uz/uploads/images/ff80818144829954794c12d7",
+                    Price = 10000
+                },
+                new Product()
+                {
+                    Id = 7,
+                    Description = "Juda shirin va mazali",
+                    Name = "Buxanka",
+                    CategoryId = 3,
+                    ImagePath = "https://storage.kun.uz/source/1/ssEjJUu1uNZtl84wFUwb11XwDH3wT1l0.jpg",
                     Price = 2
                 },
             });
